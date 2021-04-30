@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS样式之基础选择器</title>
+    <style>
+        /* 选择器{样式}
+            选择器分为 基础选择器和复合选择器
+            基础选择器由单个选择器组成 包含标签选择器、类选择器、id选择器和通配符选择器
+         */
+        /* 标签选择器 */
+        p {
+            color: green;
+        }
+
+        div {
+            color: pink;
+        }
+
+        /* 类选择器  样式点定义，结构类调用，一个或多个 开发最常用*/
+        .red {
+            color: red;
+        }
+
+        .pink {
+            color: pink;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+        }
+
+        .background-red {
+            background-color: red;
+        }
+
+        .background-green {
+            background-color: green;
+        }
+
+        .font35 {
+            font-size: 35px;
+        }
+
+        /* id选择器  样式#定义，结构id调用，常和js搭配使用，只能调用一次！！！*/
+        #blue {
+            color: blue;
+        }
+
+        /* “ * ”通配符标签 它表示对页面中所有标签的修改 不需要调用  */
+        * {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>标签选择器:能快速为页面中同一类型的标签统一样式，不能做差异化</h4>
+    <p>男生</p>
+    <p>男生</p>
+    <div>女生</div>
+    <div>女生</div>
+
+    <h4>类选择器：进行差异化，单独选一个或某几个标签 一个标签能多类名</h4>
+    <ul>
+        <li class="red">冰雨</li>
+        <li>来生缘</li>
+        <li class="red">梨木道</li>
+    </ul>
+    <div class="pink font35">多类名</div>
+    <div class="box background-red"></div>
+    <div class="box background-green"></div>
+
+    <h4>id选择器</h4>
+    <div id="blue">id选择器 样式为 #名</div>
+    <div id="blue">啊 这这这</div>
+</body>
+
+</html>

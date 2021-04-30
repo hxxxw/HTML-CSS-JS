@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS样式之复合选择器</title>
+    <style>
+        /* css复合选择是建立在基础选择器之上的，对基础选择器进行组合 
+        常用的复合选择器包含：后代选择器、子选择器、并集选择器、伪类选择器*/
+
+        /* 后代选择器又称包含选择器，可以选择父元素里面的子元素
+         格式： 基础选择器(父) 基础选择器(后代) {样式} */
+        ul li {
+            color: red;
+        }
+
+        ul li p {
+            color: deepskyblue;
+        }
+
+        ul li .px {
+            color: peru;
+        }
+
+        /* 子选择器 只能选择作为某元素的 最近 一级子元素 */
+        div>a {
+            text-decoration: none;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>后代选择器</li>
+        <li>
+            <p>ul>li>p 第三级</p>
+            <p class="px">能够任意基础选择器组合</p>
+        </li>
+        <li>3</li>
+    </ul>
+    <div>子选择器<br>
+        <a href="#">相对于div来说这就是它的儿子</a>
+        <p><a href="#">而不会修改这个链接</a></p>
+    </div>
+</body>
+
+</html>

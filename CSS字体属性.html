@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS字体属性</title>
+    <style>
+        body {
+             font-family: 'Microsoft YaHei','Times New Roman', Times, serif; 
+             /* 字体 微软雅黑... 浏览器会按顺序查找字体与电脑内相匹配*/
+             font-size: 20px; 
+        }
+        h2 {
+            font-size: 20px;  /* 标题标签比较特殊，要单独制定大小 */
+        }
+        .bold {
+            /* font-weight: bold;   字体粗细  实际开发中 常用数字表示粗细
+                bold 700   normal 400 */
+            font-weight: 700;
+        }
+        .ita {
+            font-style: italic;  /* 文字样式  italic 倾斜 normal 正常*/
+        }
+        .fuhe {
+            /* 复合方式 节约代码 */
+            /* 
+            font:font-style样式 font-weight粗细 font-size/line-height字号/高度 font-fanily字体 
+                语法格式顺序不能换，必须写font-size和font-family*/
+            font:italic 700 15px 'microsoft yahei'
+        }
+    </style>
+</head>
+<body>
+    <h2>pink的秘密</h2>
+    <p class="fuhe">那一抹众人之中最漂亮的颜色，</p>
+    <P class=" ita">优雅、清醒、淡然，又那么心中清澈，</P>
+    <p class="bold">静心、坦然，攻克一个又一个难关。</p>
+</body>
+</html>

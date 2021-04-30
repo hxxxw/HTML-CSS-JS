@@ -1,0 +1,25 @@
+/* 这个文件只写样式 没有标签 */
+body {
+    font: 16px/28px 'microsoft yahei';
+    text-indent: 2em;
+}
+h2 {
+    text-align: center;
+}
+div {
+    color: #888888;
+    text-align: center;
+}
+img {
+    align-items: center;
+}
+a {
+    text-decoration: none;
+}
+.imgshe {
+    text-align: center;
+}
+.cc {
+    font-size: 15px;
+    color: #666666;
+}
