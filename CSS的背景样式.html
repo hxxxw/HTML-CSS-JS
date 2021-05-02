@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS背景颜色</title>
+    <style>
+        /* 背景background属性：背景图片、背景颜色、背景平铺、背景图片位置、背景图像固定 背景半透明等 
+
+            background简写 ： 背景颜色 背景图片地址 背景平铺  背景图像滚动 背景图片位置 */
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .div2 {
+            width: 400px;
+            height: 260px;
+            background-image: url(images/wuyi.png); /*常用于超大背景或一些小的图标 logo*/
+            background-repeat: no-repeat; /*repeat平铺 no-repeat 不平铺 repeat-x横向铺 repeat-y竖向铺*/
+            background: rgba(0, 0, 0, .3);  /*整个div 30%透明*/
+        }
+        body {
+            /* background-image: url(images/bj.jpg);
+            background-position: center top;
+            background-attachment: fixed; 背景图像固定 fixed 背景图像固定  scroll随内容滚动 */
+            background:red url(images/bj.jpg) no-repeat fixed center center;
+        }
+        p {
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">背景颜色</div>
+    <div class="div2">背景图片</div>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+    <p>测试文字</p>
+</body>
+</html>
