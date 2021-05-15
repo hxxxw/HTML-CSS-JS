@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位</title>
+    <style>
+        /* absolute 绝对定位   是在元素移动的时候，是相对于它的祖先元素来说的 
+            如果祖先元素没有定位或没祖先元素 会以浏览器对齐 
+            如果很多祖先元素都有定位，则以最近一级的有定位的祖先元素为参考
+            绝对定位不在占有原先的位置 会脱标*/
+        /* 子绝父相的由来 ：子级是绝地定位的话，父级要用相对定位
+            子级绝对定位，不会占有位置，可以放到父盒子里面的任何一个地方，不会影响其他的兄弟盒子 
+            父盒子布局时要占有位置，因此只能用相对定位*/
+        .father {
+            position: relative;
+            /* 给父元素加了定位，则子元素只会在父元素内移动 */
+            height: 500px;
+            width: 500px;
+            background-color: coral;
+        }
+
+        .son {
+            position: absolute;
+            /* 垂直居中 */
+            left: 50%;
+            margin-left: -100px;
+            /* 水平居中 */
+            top: 50%;
+            margin-top: -100px;
+            width: 200px;
+            height: 200px;
+            background-color: #00fc00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">绝对定位垂直水平居中算法</div>
+    </div>
+</body>
+
+</html>
