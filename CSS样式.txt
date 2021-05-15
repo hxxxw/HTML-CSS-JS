@@ -1,0 +1,20 @@
+list-style: none;  /* 去掉li前面的小圆点 */
+border-collapse: collapse;  /*合并相邻的边框*/
+text-decoration: none;  /*去掉下划线*/
+line-height: 父元素的高;     /*文字水平居中*/
+
+{ 对于两个嵌套的块元素，当子元素和父元素都有相同边距，
+  此时父元素会塌陷比较大的外边距 而子元素不会改变
+  解决的方案：
+    1、为父元素定义上边框 border-top: 1px solid transparent;
+    2、为父元素定义上内边距 padding-top: 1px;
+    3、为父元素加 overflow: hidden  }
+ 
+margin: 0 auto /*让盒子处于居中水平*/
+border-radius: 10px;  /*圆角边框 值越大 弧度越大*/
+border-radius: 50%;  /*圆形盒子 先准备正方形盒子 设为50% */
+
+导航栏注意点：
+在实际开发中，我们不会直接用连接a 而是用li包含链接（li+a）的做法
+1、li+a语义更加清晰，有条理的列表型内容
+2、如果直接用a 、搜索引擎容易辨别为有风险，影响网站排名

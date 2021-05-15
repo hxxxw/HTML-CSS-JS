@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圆角边框</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .a {
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+            /* 圆角边框 */
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+
+        .b {
+            width: 300px;
+            height: 100px;
+            /* 设置为高度的一半 */
+            border-radius: 50px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+
+        .c {
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+            /* 
+            可以拆分为左上角(border-top-left-radius)、左下角(border-bottom-left-radius)、右上角、右下角
+             */
+            border-radius: 10px 30px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>圆形的做法</h4>
+    <div class="a"></div>
+    <h4>圆角矩形的做法</h4>
+    <div class="b"></div>
+    <h4>设置不同方位的不同圆角</h4>
+    <div class="c"></div>
+</body>
+
+</html>

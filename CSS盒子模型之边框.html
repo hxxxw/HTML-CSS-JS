@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS盒子模型之边框</title>
+    <style>
+        /* border可以设置元素的边框 由 边框粗细、边框样式、边框颜色组成 */
+        /* border-width 边框粗细 border-style 边框样式 border-color 边框颜色 
+            注意！边框粗细会影响整个盒子的大小 div为300 边框1 实际为301*/
+        div {
+            width: 300px;
+            height: 200px;
+            /* border-width: 5px;
+            border-style: solid;
+            solid实线边框 dashed虚线边框 dotted点线边框 默认无边框
+            border-color: pink; */
+
+            /*边框简写*/
+            border: 1px solid black;
+            /* 只设置某条边框 top bottom left right 利用层叠性 */
+            border-top: 2px solid red;
+            /*合并相邻的边框*/
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+    </div>
+</body>
+
+</html>
