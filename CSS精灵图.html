@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精灵图</title>
+    <style>
+        /* 为了有效地减少服务器接收和发送请求的次数，提高页面的加载速度，出现了CSS精灵技术 
+        核心原理： 将网页中的一些小图标、小图像整合到一张大图中，这样服务器只需要一次请求就行 
+         将这大图称为sprite 、精灵图、雪碧图
+         思路：
+         1、将大图放在盒子里作为背景图片
+         2、使用background-position 移动背景图片位置 
+         3、一般情况下往上往左移动 ，数值一般为负数*/
+        .box {
+            width: 60px;
+            height: 60px;
+            background: url(images/sprites.png) no-repeat -180px 0;
+        }
+
+        .box2 {
+            width: 27px;
+            height: 27px;
+            background: url(images/sprites.png) no-repeat -155px -105px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+</body>
+
+</html>

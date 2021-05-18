@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户界面样式</title>
+    <style>
+        input {
+            /* 取消选择后的轮廓线 */
+            outline: none;
+        }
+
+        textarea {
+            /* 取消拖拽 */
+            resize: none;
+            outline: none;
+        }
+
+        /* vertical-align属性能让图片或表单和文字垂直对齐 只针对行内块元素和行内元素有效
+            baseline  默认，元素放置在父元素的基线上
+            top       把元素的顶端与行中最高元素的顶端对齐
+            middle    把此元素放置在父元素的中部
+            bottom    把元素的顶端与行中最低的元素顶端对齐
+         */
+        img {
+            vertical-align: bottom;
+            /* vertical-align: middle; */
+            /* vertical-align: top; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 鼠标经过样式修改 -->
+    <ul>
+        <li style="cursor: default;">鼠标默认图标</li>
+        <li style="cursor: pointer;">鼠标点击图标</li>
+        <li style="cursor: move;">鼠标移动图标</li>
+        <li style="cursor: text;">鼠标文本图标</li>
+        <li style="cursor: not-allowed;">鼠标禁止图标</li>
+    </ul>
+    <!-- 表单轮廓线修改 -->
+    <input type="text">
+    <!-- 防止拖拽文本域更改大小 -->
+    <textarea name="" id="" cols="30" rows="10"></textarea><br>
+    <img src="images/图层 155.png" alt="">vertical-align样测试
+</body>
+
+</html>

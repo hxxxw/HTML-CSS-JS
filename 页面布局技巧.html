@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>功能实现</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 清除浮动代码开始 */
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        /* 清除浮动代码结束 */
+
+        .box1 span {
+            position: relative;
+            float: left;
+            height: 50px;
+            width: 50px;
+            border: 5px solid black;
+            /* 用margin将两边框重叠在一起 */
+            margin-left: -1px;
+        }
+
+        .box1 span:hover {
+            /* 通过z-index将层级提高 边框完全显示 */
+            z-index: 10;
+            border: 5px solid blue;
+        }
+
+        .box2 {
+            height: 160px;
+            width: 450px;
+            /* background-color: blue; */
+        }
+
+        .box2 img {
+            float: left;
+        }
+
+        .box3 a {
+            /* 行内块元素实现页数跳转 */
+            display: inline-block;
+            list-style: none;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            height: 50px;
+            width: 50px;
+            border: 1px solid #666;
+        }
+
+        .box4 {
+            /* 特殊的三角 */
+            margin-top: 20px;
+            width: 160px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border: 1px solid red;
+        }
+
+        .box4 .right {
+            position: relative;
+            float: left;
+            height: 100%;
+            width: 80px;
+            background-color: red;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .right i {
+            position: absolute;
+            width: 0;
+            height: 0;
+            right: 0;
+            top: 0;
+            /* 利用边框添加三角 */
+            border-color: transparent #fff transparent transparent;
+            border-style: solid;
+            border-width: 24px 10px 0 0;
+        }
+
+        .box4 .left {
+            text-decoration: line-through;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1 clearfix">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="box2">
+        <img src="综合案例/StudyDemo/images/图层133.png" alt="">利用浮动文字环绕图片|利用浮动文字环绕图片|利用浮动文字环绕图片|利用
+        浮动文字环绕图片|利用浮动文字环绕图片|利用浮动文字环绕图片|利用浮动文字环绕图片
+    </div>
+    <div class="box3">
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href="">6</a>
+        <a href="">7</a>
+    </div>
+    <div class="box4">
+        <span class="right">$14000
+            <i></i>
+        </span>
+        <span class="left">$998</span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html5新特性</title>
+    <style>
+        /* 新特性都有兼容性问题，基本是IE9+以上的浏览器才支持 */
+        /* html5新增的语义标签 
+        1、<header>头部标签 
+        2、<nav>导航标签 
+        3、<article>内容标签 
+        4、<section>定义文档某个标签 
+        5、<aside>侧边栏标签
+        6、<footer>尾部标签 */
+        /* 清除浮动 */
+        .clearfix:after {
+            visibility: hidden;
+            clear: both;
+            display: block;
+            content: ".";
+            height: 0
+        }
+
+        .clearfix {
+            *zoom: 1
+        }
+
+        header,
+        nav,
+        footer {
+            margin: 15px auto;
+            width: 1200px;
+            height: 120px;
+            background-color: yellowgreen;
+            border-radius: 15px;
+            line-height: 120px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        div {
+            height: 300px;
+            width: 1200px;
+            margin: 15px auto;
+
+        }
+
+        article {
+            float: left;
+            width: 980px;
+            height: 300px;
+            background-color: yellowgreen;
+            border-radius: 15px;
+            line-height: 120px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        section {
+            margin: 0 auto;
+            width: 500px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, .3);
+            border-radius: 15px;
+        }
+
+        aside {
+            float: right;
+            margin: 0 auto;
+            width: 200px;
+            height: 300px;
+            background-color: yellowgreen;
+            border-radius: 15px;
+            line-height: 120px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>&lt;header&gt;头部标签</header>
+    <nav>&lt;nav&gt;导航栏标签</nav>
+    <div class="clearfix">
+        <article>
+            &lt;article&gt;内容标签
+            <section>&lt;section&gt;定义文档某个区域</section>
+        </article>
+        <aside>&lt;aside&gt;侧边栏标签</aside>
+    </div>
+    <footer>&lt;footer&gt;尾部标签</footer>
+</body>
+
+</html>
