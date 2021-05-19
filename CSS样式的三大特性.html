@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS特性</title>
+    <style>
+        /* CSS有三大特性 ：层叠性、继承性、优先级 */
+        .demo1 {
+            color: red;
+            font-size: 12px;
+        }
+        .demo1 {
+            color: green;
+        }
+        .demo2 {
+            color: greenyellow;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        p {
+            font-size: 14px; 
+            /*p的行高为 14*1.5倍 =21 继承于 div.demo2 如果子元素没有指定文字大小 那么就会继承父类的样式
+              这样写的好处在于 子元素可根据文字大小 自动调整行高*/
+        }
+
+    </style>
+</head>
+<body>
+    <div class="demo1">层叠性：相同选择器给设置相同的样式，最后面的样式会覆盖之前的样式</div>
+    <div class="demo2">
+        <p>继承性 例：p标签继承div的样式</p>
+        <p>子元素只会继承 text- 、font-、line-、这些开头的样式 还有color样式</p>
+    </div>
+    <a href="CSS特性之优先级.html">CSS特性之优先级</a>
+</body>
+</html>

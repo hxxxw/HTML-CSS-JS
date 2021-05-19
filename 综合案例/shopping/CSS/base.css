@@ -1,0 +1,60 @@
+    /* 清除标签的内外边距 */
+    * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+   }
+    /* em和i斜体的文字不倾斜 */
+   em,
+   i {
+    font-style:normal
+   }
+   /* 去掉li前面的小圆点 */
+   li {
+    list-style:none
+   }
+   img {
+    /* border0 是照顾低版本浏览器，如果图片外包含链接会有边框问题 */
+    border:0;
+    /* 取消图片底部有空白缝隙 */
+    vertical-align:middle
+   }
+   button {
+    /* 鼠标移动到按钮上会有小手 */
+    cursor:pointer
+   }
+   a {
+    /* 取消下划线和更改颜色 */
+    color:#666;
+    text-decoration:none
+   }
+   a:hover {
+    color:#c81623
+   }
+   button,
+   input {
+    font-family:Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif
+   }
+   body {
+       /* 抗锯齿 */
+    -webkit-font-smoothing:antialiased;
+    background-color:#fff;
+    font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+    color:#666
+   }
+   .hide,
+   .none {
+    /* 隐藏盒子 */
+    display:none
+   }
+   /* 清除浮动 */
+   .clearfix:after {
+    visibility:hidden;
+    clear:both;
+    display:block;
+    content:".";
+    height:0
+   }
+   .clearfix {
+    *zoom:1
+   }
