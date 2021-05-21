@@ -58,3 +58,15 @@
    .clearfix {
     *zoom:1
    }
+   /* 字体图标引入 */
+   @font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?9w2h8u');
+    src: url('../fonts/icomoon.eot?9w2h8u#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?9w2h8u') format('truetype'),
+        url('../fonts/icomoon.woff?9w2h8u') format('woff'),
+        url('../fonts/icomoon.svg?9w2h8u#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}

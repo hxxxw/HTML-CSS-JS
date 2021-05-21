@@ -33,7 +33,9 @@
    }
    button,
    input {
-    font-family:Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif
+    font-family:Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+    border: 0;
+    outline: none;
    }
    body {
        /* 抗锯齿 */
@@ -58,3 +60,16 @@
    .clearfix {
     *zoom:1
    }
+      /* 字体图标引入 */
+    @font-face {
+        font-family: 'icomoon';
+        src:  url('../../../fonts/icomoon.eot?26ljyp');
+        src:  url('../../../fonts/icomoon.eot?26ljyp#iefix') format('embedded-opentype'),
+          url('../../../fonts/icomoon.ttf?26ljyp') format('truetype'),
+          url('../../../fonts/icomoon.woff?26ljyp') format('woff'),
+          url('../../../fonts/icomoon.svg?26ljyp#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+      

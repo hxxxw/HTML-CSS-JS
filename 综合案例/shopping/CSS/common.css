@@ -1,5 +1,173 @@
 /* 有些结构和样式在很多页面中重复使用，可以把这些样式单独做一个公共模块 */
+/* 版心 */
 .w {
     width: 1200px;
     margin: 0 auto;
+}
+.fl {
+    float: left;
+}
+.fr{
+    float: right;
+}
+.style_red {
+    color: #c81623;
+}
+/* 快捷导航栏 */
+.shortcut {
+    height: 31px;
+    line-height: 31px;
+    background-color: #f1f1f1;
+}
+
+.shortcut ul li {
+    display: inline-block;
+}
+/* 制作小竖线 */
+.shortcut .fr ul li:nth-child(even){
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    margin: 9px 15px 0;
+}
+.arrow-icon::after{
+    font-family: 'icomoon';
+    margin-left: 3px;
+    content: "\e900";
+}
+/* 头部区域 */
+.header {
+    position: relative;
+    height: 106px;
+    /* background-color: aqua; */
+}
+.logo {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 171px;
+    height: 61px;
+    /* background-color: #c81623; */
+}
+.logo a {
+    display: block;
+    width: 171px;
+    height: 61px;
+    font-size: 0;
+    /* 取消文本显示的另外一种做法
+    text-indent: -999px;
+    overflow: hidden; */
+    background: url(../images/logo.png);
+}
+.search {
+    position:absolute;
+    top: 24px;
+    left: 348px;
+    width: 538px;
+    height: 36px;
+    border: 2px solid #b1191a;
+    box-sizing: border-box;
+}
+.search form input {
+    width: 455px;
+    height: 32px;
+    padding-left: 10px;
+}
+.search form button {
+    width: 75px;
+    height: 32px;
+    background-color: #b1191a;
+    font-size: 14px;
+    color: #fff;
+}
+.hotwords {
+   position: absolute;
+   top: 69px;
+   left: 357px;
+    
+}
+.hotwords ul li{
+    float: left;
+    margin: 0 15px;
+}
+.shopcar {
+    position: absolute;
+    top: 24px;
+    right: 65px;
+    width: 140px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+}
+.shopcar::before {
+    font-family: 'icomoon';
+    content: "\e93a";
+    margin-right: 5px;
+}
+.shopcar::after{
+    font-family: 'icomoon';
+    content: "\e902";
+    margin-left: 5px;
+}
+.shopcar .count {
+    position: absolute;
+    top: 0;
+    /* right: 24px; */
+    /* 字会从左到右显示 */
+    left: 100px;
+    height: 14px;
+    /* 因为count会继承shopcar的行高35px 所以要重新指定行高14px */
+    line-height: 14px;
+    padding: 0 5px;
+    color: #fff;
+    background-color: #f8160d;
+    border-radius: 7px 7px 7px 0;
+}
+/* 导航栏制作 */
+.nav {
+    line-height: 45px;
+    text-align: center;
+    height: 45px;
+    border-bottom: 3px solid #b1191a;
+}
+.nav .dropdown .dt{
+    /* float: left; */
+    width: 210px;
+    height: 45px;
+    background-color: #b1191a;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+}
+.nav .dropdown .dd{
+    width: 210px;
+    height: 465px;
+    background-color: #c81623;
+}
+.dropdown .dd ul li {
+    margin-left: 2px;
+    padding-left: 5px;
+    text-align: left;
+    width: 210px;
+    height: 30px;
+    line-height: 30px;
+}
+.dropdown .dd ul li a {
+    font-size: 14px;
+    color: #fff;
+}
+.dropdown .dd ul li:hover {
+    /* color: #f8160d; */
+    background-color: #fff;
+}
+.dropdown .dd ul li:hover a {
+    color: #f8160d;
+}
+.nav .navitems li {
+    float: left;
+    margin-left: 48px;
+    font-size: 16px;
+    color: #333;
 }
