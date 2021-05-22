@@ -13,11 +13,12 @@
          思路：
          1、将大图放在盒子里作为背景图片
          2、使用background-position 移动背景图片位置 
-         3、一般情况下往上往左移动 ，数值一般为负数*/
+         3、一般情况下 往上 往左 移动 ，数值一般为负数*/
         .box {
             width: 60px;
             height: 60px;
             background: url(images/sprites.png) no-repeat -180px 0;
+            /* 先写X轴再写Y轴 */
         }
 
         .box2 {
