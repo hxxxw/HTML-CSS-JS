@@ -69,12 +69,14 @@
     box-sizing: border-box;
 }
 .search form input {
-    width: 455px;
+    float: left;
+    width: 454px;
     height: 32px;
     padding-left: 10px;
 }
 .search form button {
-    width: 75px;
+    float: left;
+    width: 80px;
     height: 32px;
     background-color: #b1191a;
     font-size: 14px;
@@ -84,7 +86,6 @@
    position: absolute;
    top: 69px;
    left: 357px;
-    
 }
 .hotwords ul li{
     float: left;
