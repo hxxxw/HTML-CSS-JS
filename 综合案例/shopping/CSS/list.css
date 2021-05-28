@@ -1,0 +1,85 @@
+/* 列表页专有的CSS样式 */
+
+.sk {
+    position: absolute;
+    top: 40px;
+    left: 190px;
+    padding-left: 13px;
+    border-left: 1px solid #c81523;
+}
+.sk_list ul li {
+    float: left;
+    font-weight: 700;
+    font-size: 18px;
+    color: #333;
+    margin: 0 28px;
+}
+.sk_con ul li {
+    float: left;
+    font-size: 14px;
+    color: #333;
+    margin-right: 46px;
+}
+.sk_con ul li:last-child::after {
+    font-family: 'icomoon';
+    content: "\e900";
+}
+.container_bd ul li{
+    float: left;
+    padding-left: 8px;
+    width: 290px;
+    height: 460px;
+}
+.container_bd ul li:hover {
+    border: 1px solid #e60012;
+}
+.container_bd ul li img {
+    width: 278px;
+    height: 290px;
+}
+.container_bd ul li p {
+    font-size: 14px;
+    color: #666;
+}
+.container_bd ul li .xin {
+    font-size: 22px;
+    color: #e60012;
+}
+.container_bd ul li .yuan {
+    font-size: 14px;
+    color: #a4a4a4;
+    text-decoration: line-through;
+}
+.info {
+    height: 16px;
+    line-height: 16px;
+}
+.info span {
+    position: relative;
+    display: inline-block;
+    width: 130px;
+    height: 14px;
+    background-color: #e60012;
+    border: 1px solid #e60012;
+    border-radius: 7px;
+}
+.info span i {
+    position: absolute;
+    top: 0;
+    right: 0%;
+    height: 12px;
+    width: 16px;
+    background-color: #fff;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+.container_bd ul li button {
+    margin: 0 0 ;
+    margin-top: 14px;
+    width: 270px;
+    height: 50px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #e60012;
+
+}

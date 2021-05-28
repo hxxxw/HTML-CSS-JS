@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3属性选择器</title>
+    <style>
+        /* 属性选择器和类选择器、伪类选择器 权重都为 10 */
+        input[value] {
+            /* 选择input中带有value的元素 */
+            background-color: sandybrown;
+        }
+
+        input[type=password] {
+            /* 选择input中带有type=password的元素 */
+            background-color: seagreen;
+        }
+
+        div[class^=icon] {
+            /* 选择div中class属性中以icon开头的元素 */
+            color: seagreen;
+            font-weight: 700;
+        }
+
+        section[class$=data] {
+            color: sienna;
+            font-weight: 700;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1、利用属性选择器可以不借助类选择器或id选择器 -->
+    <input type="text">
+    <input type="text" value="">
+    <!-- 2、属性选择器可以选择属性=值的某些元素  重点！！！ -->
+    <input type="text" name="111" id="">
+    <input type="password" name="" id="">
+    <!-- 3、属性选择器可以选择属性值开头的某些元素 -->
+    <div class="icon1">图标1</div>
+    <div class="icon2">图标2</div>
+    <div class="icon3">图标3</div>
+    <div class="icon4">图标4</div>
+    <div>打酱油打酱油打酱油打酱油</div>
+    <!-- 4、属性选择器可以选择属性值结尾的某些元素 -->
+    <section class="icon1-data">相同结尾</section>
+    <section class="icon2-data">相同结尾</section>
+    <section class="icon3-ico">不同类名结尾</section>
+</body>
+
+</html>

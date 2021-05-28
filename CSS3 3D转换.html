@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 3D转换</title>
+    <style>
+        /*由三维坐标系组成
+        x轴 水平向右 x右边是正值 左边是负值
+        y轴 垂直向下 y下面是正值 上面是负值
+        z轴 垂直屏幕 往外是正值  往里是负值
+        3D 位移:translate3d(x,y,z)  在2d的基础上加了z轴移动
+        3D 旋转:rotate(x,y,z)
+        透视:perspective     如果要在网页中产生3D效果就需要透视 模拟人是视觉位置视距
+        3D 呈现 transform——style  子元素是否开启3D空间 代码写给父级 但是影响的是子盒子*/
+        body {
+            /* 透视要写到被观察元素的父盒子上面 */
+            perspective: 500px;
+            /* 透视值越小，那么观察到的盒子越大 近大远小 */
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #09f;
+            /* transform: translateX(100px) translateY(100px) translateZ(100px); 
+                translateZ 是物体距离屏幕的距离，z轴越大 我们看到的物体越大*/
+            transform: translate3d(400px, 100px, 100px);
+        }
+
+        .box2 {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            transition: all 1s;
+            /* 让子元素开启3D空间 */
+            transform-style: preserve-3d;
+        }
+
+        .box2:hover {
+            transform: rotateY(45deg);
+        }
+
+        .box2 div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: khaki;
+        }
+
+        .box2 div:last-child {
+            background-color: lightcoral;
+            transform: rotateX(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2">
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

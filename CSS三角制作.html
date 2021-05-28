@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>三角制作</title>
+    <style>
+        .box1 {
+            /* 当未指定大小，用边框撑起来，效果为四个三角拼凑在一起 */
+            width: 0;
+            height: 0;
+            border-top: 10px solid pink;
+            border-left: 10px solid red;
+            border-right: 10px solid blue;
+            border-bottom: 10px solid green;
+        }
+
+        .box2 {
+            /* 当未指定大小，用边框撑起来，效果为四个三角拼凑在一起 */
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-right-color: yellow;
+        }
+
+        .jd {
+            position: relative;
+            width: 100px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .box3 {
+            position: absolute;
+            top: -25px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+            border-bottom-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="jd">
+        <div class="box3"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位的叠放顺序</title>
+    <style>
+        /* 在使用定位布局时，可能会出现盒子重叠的情况，可以使用z-index(只有定位才会有这属性)来控制盒子的前后顺序（Z轴）
+           数值可以是正整数、负整数或0，默认是auto 数值越大，盒子越靠上 */
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        .aa {
+            z-index: 1;
+            /* 数值为1 比默认aotu高 */
+            background-color: yellow;
+            height: 100px;
+            width: 150px;
+
+        }
+
+        .bb {
+            background-color: blueviolet;
+            height: 200px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box aa"></div>
+    <div class="box bb"></div>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素选择器</title>
+    <style>
+        /* 
+        ::after  在元素内部后面插入内容
+        ::before 在元素内部前面插入内容
+        before和after会创建一个行内元素 相当于父元素的孩子
+        它们必须有content属性 单冒号是为了照顾ie8以下版本的浏览器
+        伪元素还能清除浮动
+        .clearfix:before,
+        .clearfix:after {
+            通过before和after将浮动前后堵塞
+            content: "";    
+            display: table; 转换为块级元素
+        }
+
+        .clearfix:after {
+            clear: both;    清除浮动核心代码
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+        */
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?9w2h8u');
+            src: url('fonts/icomoon.eot?9w2h8u#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?9w2h8u') format('truetype'),
+                url('fonts/icomoon.woff?9w2h8u') format('woff'),
+                url('fonts/icomoon.svg?9w2h8u#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .box1 {
+            position: relative;
+            height: 40px;
+            width: 400px;
+            border: 1px solid red;
+        }
+
+        .box1::before {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: 'icomoon';
+            font-size: 18px;
+            color: royalblue;
+            /* content: ""; */
+            content: "\e907";
+        }
+
+        .tudou {
+            position: relative;
+            margin-top: 20px;
+            width: 444px;
+            height: 320px;
+            background-color: cornflowerblue;
+        }
+
+        .tudou img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tudou::before {
+            /* 隐藏遮罩层 */
+            content: "";
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5) url(images/arr.png) no-repeat center;
+        }
+
+        .tudou:hover::before {
+            /* 显示遮罩层 */
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="tudou">
+        <img src="images/tudou.jpg" alt="">
+    </div>
+
+</body>
+
+</html>

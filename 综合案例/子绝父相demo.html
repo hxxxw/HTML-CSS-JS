@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学成在线练习</title>
+    <style>
+        .box {
+            /* 父元素加相对定位 */
+            position: relative;
+            width: 230px;
+            height: 270px;
+        }
+
+        .box>img {
+            width: 100%;
+        }
+
+        .box h4 {
+            font-weight: 400;
+            font-size: 16px;
+            color: #050505;
+        }
+
+        .box .info {
+            color: coral;
+        }
+
+        .box em {
+            position: absolute;
+            /* 子元素加绝对定位 */
+            top: 4px;
+            right: -4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <em><img src="StudyDemo/images/new.png" alt=""></em>
+        <img src="StudyDemo/images/图层135.png" alt="">
+        <h4>Think PHP入门 5.0实战演练</h4>
+        <span class="info">高级</span>
+        <span> • 1125人在学习</span>
+    </div>
+</body>
+
+</html>

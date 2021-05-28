@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5新增标签</title>
+    <style>
+        video {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <video src="images/xiaomiK40.mp4" autoplay="autoplay" muted controls="controls" loop
+            poster="images/pic.png"></video>
+        <!-- autoplay 自动播放 谷歌浏览器需添加muted 来解决自动播放问题 
+         controls 向用户显示播放控件
+        loop 自动循环播放
+        poster 视频未开始时的加载图片-->
+    </div>
+    <div>
+        <audio src="images/极速梦想.mp3" controls autoplay loop></audio>
+        <!-- autoplay 自动播放  
+        controls 向用户显示播放控件
+        loop 自动循环播放 -->
+    </div>
+    <div>
+        <!-- 新增的input类型：
+            type="email" 限制用户必须输入email类型
+            type="url" 限制用户必须输入url类型
+            type="date" 限制用户必须输入日期类型
+            type="search" 搜索框
+            type="color"  生成一个颜色选择表单
+
+            新增表单属性
+            required  表单不能为空
+            placeholder  框内文字提示
+            autofocus  将焦点定位到框内
+            autocomplete 浏览器会记录输入的数据 on/off 开启或关闭
+            multiple  可以多选文件提交
+        -->
+        <form action="">
+            <ul>
+                <li>邮箱：<input type="email" required placeholder="请输入邮箱" /></li>
+                <li>手机号码：<input type="tel" autofocus autocomplete="off"></li>
+                <li>日期：<input type="date"></li>
+                <li>搜索：<input type="search"></li>
+                <li>颜色：<input type="color"></li>
+                <li>网址：<input type="url"></li>
+                <!-- 当点击提交就能验证表单格式 -->
+                <li><input type="submit" value="提交"></li>
+            </ul>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结构伪类选择器</title>
+    <style>
+        /* ul li:first-child {
+             ul li 中的第一个孩子 
+            background-color: skyblue;
+        } */
+
+        /* ul li:last-child {
+            ul li 中最后一个孩子
+             background-color: springgreen;
+        } */
+        ul li:nth-child(even) {
+            /* 偶数：even或2n  奇数：odd或2n+1 */
+            background-color: teal;
+        }
+
+        ul li:nth-child(3) {
+            /* 选择第三个孩子 */
+            background-color: tan;
+        }
+
+        ol li:nth-child(3n) {
+            /* 选择3的倍数 */
+            background-color: #000;
+        }
+
+        ol li:nth-child(n+7) {
+            background-color: violet;
+            /* 从第七个开始到结束 */
+        }
+
+        ol li:nth-child(-n+2) {
+            background-color: tomato;
+            /* 选择前两个 */
+        }
+
+        /* ul li:nth-child(1)和 ul li:nth-of-type(1)的区别 
+            nth-child 会对所有类型的盒子排列序号
+            执行的时候先看:nth-child(1) 再选择li
+
+            nth-of-type 会对指定类型 排列序号 
+            执行是会先看li类型 再选择:nth-of-type(1)
+        */
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>第个1孩子</li>
+        <li>第个2孩子</li>
+        <li>第个3孩子</li>
+        <li>第个4孩子</li>
+        <li>第个5孩子</li>
+        <li>第个6孩子</li>
+        <li>第个7孩子</li>
+        <li>第个8孩子</li>
+    </ul>
+    <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+</body>
+
+</html>
