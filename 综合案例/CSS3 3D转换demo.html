@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .box1 {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            transform-style: preserve-3d;
+            transition: all 1s;
+        }
+
+        .box1:hover {
+            transform: rotateY(180deg);
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 200px;
+            border-radius: 50%;
+        }
+
+        .front {
+            background-color: lightcoral;
+        }
+
+        .back {
+            background-color: lightgreen;
+            transform: rotateY(180deg);
+
+        }
+
+        ul {
+            margin: 100px;
+        }
+
+        ul li {
+            width: 120px;
+            height: 35px;
+            list-style: none;
+            perspective: 500px;
+        }
+
+        .box2 {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            /* background-color: lightgreen; */
+            transform-style: preserve-3d;
+            transition: all .3s;
+        }
+
+        .box2:hover {
+            transform: rotateX(90deg);
+        }
+
+        .box2front,
+        .box2bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 35px;
+            /* border-radius: 50%; */
+        }
+
+        .box2front {
+            background-color: lightseagreen;
+            z-index: 1;
+            transform: translateZ(17.5px);
+        }
+
+        .box2bottom {
+            background-color: orangered;
+            /* 如果是复合样式写法 必须 先写移动 再写其他样式 */
+            transform: translateY(17.5px) rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="front">这是正面</div>
+        <div class="back">背面背面</div>
+    </div>
+    <ul>
+        <li>
+            <div class="box2">
+                <div class="box2front">前面</div>
+                <div class="box2bottom">翻转后的底下</div>
+            </div>
+        </li>
+        <li>
+            <div class="box2">
+                <div class="box2front">前面</div>
+                <div class="box2bottom">翻转后的底下</div>
+            </div>
+        </li>
+        <li>
+            <div class="box2">
+                <div class="box2front">前面</div>
+                <div class="box2bottom">翻转后的底下</div>
+            </div>
+        </li>
+        <li>
+            <div class="box2">
+                <div class="box2front">前面</div>
+                <div class="box2bottom">翻转后的底下</div>
+            </div>
+        </li>
+        <li>
+            <div class="box2">
+                <div class="box2front">前面</div>
+                <div class="box2bottom">翻转后的底下</div>
+            </div>
+        </li>
+        <li>
+            <div class="box2">
+                <div class="box2front">前面</div>
+                <div class="box2bottom">翻转后的底下</div>
+            </div>
+        </li>
+
+    </ul>
+</body>
+
+</html>

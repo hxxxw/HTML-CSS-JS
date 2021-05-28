@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d旋转</title>
+    <style>
+        body {
+            perspective: 500px;
+        }
+
+        /* 3D旋转  rotate3d 可以沿着XYXZ轴转 */
+        .common {
+            display: block;
+            margin: 150px 150px;
+            transition: all 1s;
+        }
+
+        .x:hover {
+            transform: rotateX(180deg);
+
+        }
+
+        .y:hover {
+            transform: rotateY(180deg);
+        }
+
+        .z:hover {
+            transform: rotateZ(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 沿着X轴旋转 -->
+    <img src="images/pic.png" alt="" class="common x">
+    <!-- 沿着Y轴旋转 -->
+    <img src="images/pic.png" alt="" class="common y">
+    <!-- 沿着Z轴旋转 -->
+    <img src="images/pic.png" alt="" class="common z">
+</body>
+
+</html>

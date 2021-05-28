@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>热点图</title>
+    <style>
+        .map {
+            position: relative;
+            margin: 100px auto;
+            width: 270px;
+            height: 270px;
+            background-color: #000;
+        }
+
+        .box1 {
+            position: absolute;
+            top: 74px;
+            right: 74px;
+        }
+
+        .box2 {
+            top: 174px;
+            right: 174px;
+        }
+
+        .dotted {
+            width: 8px;
+            height: 8px;
+            background-color: #09f;
+            border-radius: 50%;
+        }
+
+        .box1 div[class^="pulse"] {
+            /* 保证小波纹在父盒子里水平垂直居中  */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 12px #009dfd;
+            border-radius: 50%;
+            animation: pulse 1.2s linear infinite;
+        }
+
+        .box1 div.pulse2 {
+            animation-delay: 0.4s;
+        }
+
+        .box1 div.pulse3 {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes pulse {
+            0% {}
+
+            50% {
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+                box-shadow: 0 0 12px #a0d60c;
+            }
+
+            100% {
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+                box-shadow: 0 0 12px #e62121;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map">
+        <div class="box1">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+        <div class="box1 box2">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+    </div>
+</body>
+
+</html>
