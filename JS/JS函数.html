@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+    <script>
+        // 1、函数声明  函数的命名一般用动词
+        // function 函数名(形参1,形参2...) {
+        //     函数执行内容
+        // }
+        // 2、调用函数
+        // 函数名(实参1,实参2...); 如果实参多于行参 会取到形参的个数
+
+        // 用函数表达式声明函数  var 变量名 = function(形参..){函数执行内容};
+        // 没有函数名 但可用变量名调用 变量名(实参)
+        function fn() {
+            console.log(arguments);
+            //函数内置arguments对象，里面存储了所有传递过来的实参
+            //具有数组的length属性、按照索引存储
+        }
+        fn(1, 2, 3);
+
+        function getSum(num1, num2) {
+            var sum = num1 + num2;
+            return sum;  // 函数运行遇到return 后就会终止后面代码
+        }
+        var s = getSum(1, 54);
+        console.log(s);
+
+        //求任意两个数的 加减乘除 结果
+        function getResult(number1, number2) {
+            return [number1 + number2, number1 - number2, number1 * number2, number1 / number2];
+        }
+        console.log(getResult(1, 3));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
