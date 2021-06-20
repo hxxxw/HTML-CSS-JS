@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="one">根据ID获取元素 </div>
+    <ul>
+        <li>根据标签名获取元素1</li>
+        <li>根据标签名获取元素2</li>
+    </ul>
+    <ol id="ol">
+        <li>1根据标签名获取元素</li>
+        <li>2根据标签名获取元素</li>
+        <li>3根据标签名获取元素</li>
+    </ol>
+    <script>
+        // DOM在实际开发中主要用于操作元素 document
+        // 获取页面中元素 主要有几种方法
+        // 1、根据ID获取元素   getElementById()方法可以获得带有id的元素对象
+        var one = document.getElementById('one');
+        console.log(one);  // getElementById会返回一个对象 
+        console.log(typeof one);
+        console.dir(one);  //打印我们返回的元素对象，更好的查看里面的属性和方法
+
+        // 2、根据标签名获取元素  document.getElementsByTagName()可以返回带有指定标签名的 对象集合
+        var two = document.getElementsByTagName('li');
+        console.log(two);  //获取元素对象的集合 以伪数组的方式存储 
+        console.log(two[0]);  //获取到对象集合中 第一个元素对象
+        for (var i = 1; i < two.length; i++) {
+            console.log(two[i]);   // 对集合进行遍历
+        }
+        var ol = document.getElementById('ol');
+        console.log(ol.getElementsByTagName('li'));  //获取到只属于ol里面的li
+        // 3、通过HTML5新增方法获取元素
+        // 4、特殊元素获取
+    </script>
+</body>
+
+</html>

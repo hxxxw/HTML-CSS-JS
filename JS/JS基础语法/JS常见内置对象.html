@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象</title>
+    <script>
+        // 常见为 math数字对象、data日期对象、array数组对象、string字符串对象
+        // 封装自己的数学对象
+        // var myMath = {
+        //     PI: 3.141592653,
+        //     max: function () {
+        //         var max = arguments[0];
+        //         for (var i = 0; i < arguments.length; i++) {
+        //             if (arguments[i] > max) {
+        //                 max = arguments[i];
+        //             }
+        //         }
+        //         return max;
+        //     },
+        //     min: function () {
+        //         var min = arguments[0];
+        //         for (var i = 0; i < arguments.length; i++) {
+        //             if (arguments[i] < min) {
+        //                 min = arguments[i];
+        //             }
+        //         }
+        //         return min;
+        //     }
+        // }
+        // console.log(myMath.max(1, 2, 3, 5, 15, 1));
+        // console.log(myMath.min(1, 2, 3, 5, 15, 1));
+
+        ////////////////////// Math常用属性方法////////////////////
+        console.log(Math.PI);  //数学中π的值
+        console.log(Math.abs(4)); //取绝对值 
+        console.log(Math.min(91, 12, 53, 41, 65)); //取最小值
+        console.log(Math.max(91, 12, 53, 41, 65)); //取最大值
+        console.log(Math.floor(1.9));  //向下取整 不会四舍五入 1.9~=1
+        console.log(Math.ceil(1.1)); //向上取整 不会四舍五入 1.1~=2
+        console.log(Math.round(2.5));  // 四舍五入 
+        function getRandom(min, max) {  //random() 返回随机在0到1之间的小数
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(getRandom(1, 10));
+
+        ////////////////////////日期对象//////////////////////
+        //日期对象  是个构造函数 必须使用new 来调用创建 日期对象
+        var now = new Date(); // 如果里面没有跟任何参数，则会创建系统当前时间 要调用Date内的函数方法必须先创建对象
+        console.log(now);
+        console.log(now.getFullYear());  //获取当前的年份
+        console.log(now.getMonth() + 1);  // getMonth() 为0~11 所以需要+1 才能获取当前月份
+        console.log(now.getDate());  //获取 几号
+        console.log(now.getDay());  //当前是周几 周一返回1 周六返回6 注意周日返回0
+
+        var year = now.getFullYear();//获取当前的年份
+        var month = now.getMonth() + 1; // getMonth() 为0~11 所以需要+1 才能获取当前月份
+        var nowdate = now.getDate();//获取 几号
+        var day = now.getDay();//当前是周几 周一返回1 周六返回6 注意周日返回0
+        var datearr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        var hours = now.getHours();  //返回当前小时
+        hours = hours < 10 ? '0' + hours : hours;
+        var minute = now.getMinutes(); //返回当前分钟
+        minute = minute < 10 ? '0' + minute : minute;
+        var seconds = now.getSeconds(); //返回当前秒
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        function getTime() {
+            console.log('现在的时间是' + hours + ':' + minute + ':' + seconds);
+            return ('现在的时间是' + hours + ':' + minute + ':' + seconds);
+        }
+        alert('现在日期 ' + year + '年' + month + '月' + nowdate + '号 ' + datearr[day] + '\n' + getTime());
+        var date1 = new Date('2019-10-1 8:9:8');  //字符型
+        console.log(date1);
+        var date2 = new Date(2023, 10, 12); //数字型
+        console.log(date2);
+        //获取从1970年1月1日到现在的总毫秒数 (时间戳 可用于加密等)
+        // 1、最常用写法
+        var date1 = +new Date();
+        console.log(date1);
+        // 2、H5新增的获取总的毫秒数
+        console.log(Date.now());
+
+        //////////////////////// 数组对象//////////////////////
+        // 两种创建数组方式
+        // 1、利用字面量创建
+        var arr1 = [1, 2, 4, 'a'];
+        console.log(arr1);
+        // 2、利用new array()
+        // var arr2 = new Array(5);  //数组的长度为5 有5个空元素
+        var arr2 = new Array(5, 23, 5321, 23);// 等价于 [5, 23, 5321, 23] 写两个以上的值
+        console.log(arr2);
+        //检测是否为数组 1、instanceof 运算符  2、Array.isArray(参数)H5新增的 
+        var arr = [];
+        var obj = {};
+        console.log(arr instanceof Array); //检测是否为数组 是返回 true 否返回false
+        console.log(obj instanceof Array);
+        console.log(Array.isArray(arr));   //检测是否为数组 是返回 true 否返回false
+        console.log(Array.isArray(obj));
+        // 添加或删除 数组元素方法
+        // 1、push() 在数组末尾添加一个或多个数组元素
+        var arrdemo = [1, 2, 3];
+        console.log(arrdemo.push(435, 235)); //push() 会有返回值 是新数组的长度
+        console.log(arrdemo);
+        // 2、unshift() 在数组的前面添加一个或多个元素
+        arrdemo.unshift('first', 'qqq');  //unshift () 会有返回值 是新数组的长度
+        console.log(arrdemo);
+        // 3、pop() 删除数组最后一个元素  不需要带参
+        console.log(arrdemo.pop()); //会删除最后一个元素，并返回删除的值
+        // 4、shift() 删除数组的第一个元素 不需要带参
+        console.log(arrdemo.shift()); //会删除最后一个元素，并返回删除的值
+        console.log(arrdemo);
+        // 翻转数组
+        var arr3 = ['qqq', 'www', 'eee', 'rrr'];
+        arr3.reverse();     // 1、翻转数组  
+        console.log(arr3);
+        // 数组元素排序
+        var arr4 = [13, 653, 86, 345, 1, 86, 43];
+        arr4.sort(function (a, b) {   //sort() 排序方法名
+            // return a - b;   // 按照升序排列
+            return b - a;   // 按照降序排列
+        });
+        console.log(arr4);
+        // 数组索引方法
+        var strarr = ['qwe', 'asd', 888, 124, 6734, 345, 888, 1233];
+        console.log(strarr.indexOf(888));  //indexOf(数组元素,[开始查找的位置])  会返回元素在数组中第一次出现的位置 未找到返回-1
+        console.log(strarr.lastIndexOf(888)); //lastIndexOf(数组元素) 从后往前查找元素在数组中出现的位置 未找到返回 - 1
+
+        // 将数组转换为字符串  join(符号分隔符)
+        var strarr1 = ['weq', 'adc', 'green', 'black'];
+        console.log(strarr1.join('&'));  // 打印出字符串 用 - 分割
+        // 删除或增加数组中的元素
+        //strarr1.splice(1, 2);  // 从下标为1开始，向后删除两个元素
+        strarr1.splice(1, 1, 'qqqc', 'fhf'); //从下标为1开始删除1个元素,并添加两个元素
+        console.log(strarr1);
+
+        //////////////////////// 字符串对象//////////////////////
+        // 基本包装类型 就是把简单数组类型 包装成了 复杂数据类型 那么就会有//属性和方法//
+        var str = 'one';
+        console.log(str.length); // js 把 String、Number、Boolean 包装复杂数据类型
+        // 包装成复杂数据类型 过程如下；
+        // 1、生成临时变量, 把简单类型包装成复杂数据类型
+        // var temp = new String('one');
+        // 2、赋值给声明的字符变量
+        // str = temp;
+        // 3、销毁临时变量
+        // temp = null;
+
+        str = 'two'; //当重新给str赋值时,常量‘one’ 不会被销毁覆盖 而是重新开辟了一个‘two’的空间,让str指向它
+        strrr = '12dasr32f';
+        //根据位置返回字符 charAt(下标)
+        //根据位置返回ASCII码  charCodeAt(下标)
+        // 字符串变量[下标]  H5新增 效果与 charAt() 一样     
+        console.log(strrr[2]);
+        console.log(str.charAt(1));  //打印出 w 
+        console.log(str.charCodeAt(1));  //打印出w 的 ASCII码
+        for (var i = 0; i < str.length; i++) {
+            console.log(str.charAt(i));  //遍历字符串
+        }
+        // 对字符串中操作 substr(截取的开始位置,要截取的长度)
+        var str1 = 'asuvnenkdisdhivnapasucnwd';
+        console.log(str1.substr(2, 5));   //截取了uvnen
+
+        // 替换字符  replace(被替换的字符,要替换的字符) 只会替换第一次出现的字符
+        while (str1.indexOf('v') != -1) {
+            str1 = str1.replace('v', '*');
+        }
+        console.log(str1);  //asu*nenkdisdhi*napasucnwd
+        // 将字符串转换为数组 split('分隔符')   与 join把数组转换为字符串相反
+        var str2 = 'red&back&wfas&asww';
+        console.log(str2.split('&'));  //["red", "back", "wfas", "asww"]
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
