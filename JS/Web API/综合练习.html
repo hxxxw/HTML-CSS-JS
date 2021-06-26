@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>综合练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .img {
+            margin: 0 auto;
+            width: 957px;
+            height: 100px;
+            background: url(../../images/图层\ 155.png) no-repeat;
+        }
+
+        .icon {
+            position: absolute;
+            top: -3px;
+            right: 486px;
+            cursor: pointer;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: gray;
+            height: 40px;
+            width: 100px;
+            text-align: center;
+            line-height: 40px;
+            box-sizing: border-box;
+        }
+
+        .nav {
+            width: 500px;
+        }
+
+        .nav>li {
+            float: left;
+        }
+
+        .nav>li>a {
+            color: black;
+        }
+
+        .nav>li>ul>li>a {
+            /* display: none; */
+            border: 1px solid orange;
+            border-top: none;
+        }
+
+        .nav>li>ul {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img"></div><i class="icon">X</i>
+    <button> 开关灯</button>
+    <ul class="nav" id=nav>
+        <li>
+            <a href="#">新浪</a>
+            <ul>
+                <li><a href="#">新闻</a> </li>
+                <li><a href="#">体育</a> </li>
+                <li><a href="#">快讯</a> </li>
+                <li><a href="#">生活</a> </li>
+                <li><a href="#">微博</a> </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">新浪</a>
+            <ul>
+                <li><a href="#">新闻1</a> </li>
+                <li><a href="#">体育1</a> </li>
+                <li><a href="#">快讯1</a> </li>
+                <li><a href="#">生活1</a> </li>
+                <li><a href="#">微博1</a> </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">新浪</a>
+            <ul>
+                <li><a href="#">新闻2</a> </li>
+                <li><a href="#">体育2</a> </li>
+                <li><a href="#">快讯2</a> </li>
+                <li><a href="#">生活2</a> </li>
+                <li><a href="#">微博2</a> </li>
+            </ul>
+        </li>
+
+
+    </ul>
+    <script>
+        var btn = document.querySelector('button');
+        var body = document.querySelector('body');
+        var icon = document.querySelector('.icon');
+        var img = document.querySelector('.img');
+        var lis = document.querySelectorAll('.nav>li');
+        var flag = 1;
+        btn.onclick = function () {    // 实现开关灯
+            if (flag) {
+                body.style.backgroundColor = '#000';
+                flag = 0;
+            } else {
+                body.style.backgroundColor = '#fff';
+                flag = 1;
+            }
+        }
+        icon.onclick = function () {    // 实现去掉广告
+            this.style.display = 'none';
+            img.style.display = 'none';
+        }
+        for (var i = 0; i < lis.length; i++) {   //实现鼠标经过 下拉菜单
+            //思路：在菜单栏下有3个li li里面有ul+li 
+            //先获取到菜单栏下的3个li 再对每个li的鼠标经过进行触发事件绑定
+            // 对每个li下的ul 进行显示和隐藏
+            lis[i].onmouseover = function () {  // onmouseover 当鼠标移到元素上触发
+                this.children[1].style.display = 'block';//对li下的第一个孩子 也就是ul进行操作
+            }
+            lis[i].onmouseout = function () {  // onmouseover 当鼠标离开元素触发
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

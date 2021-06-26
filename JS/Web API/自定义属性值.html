@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo" abcd='1' class="index1"></div> <!-- 自定义了abcd属性 -->
+    <script>
+        var div = document.getElementById('demo');
+        // 获取元素属性值  
+        // Element.属性值  获取内置属性值(元素本身自带的属性) 
+        console.log(div.id);
+        console.log(div.abcd);  // 无法调用 回复underfined
+        // Element.getAttribute('属性');   主要获取自定义的属性
+        console.log(div.getAttribute('id'));
+        console.log(div.getAttribute('abcd')); //能够调用abgcd属性
+
+        //操作属性值
+        // Element.属性 = '值';
+        div.id = 'text';
+        div.className = 'qwe';
+        // Element.setAttribute('属性', '值');  // 主要针对于自定义属性
+        div.setAttribute('id', 'texttext');
+        div.setAttribute('abcd', '999');
+        div.setAttribute('class', 'abcfff');  // 跟 .className 相同效果
+
+        //移除属性值
+        //Element.removeAttribute('属性值'); 
+        div.removeAttribute('abcd');
+
+        // H5 自定义属性  H5规定自定义属性要以 data-开头作为属性名并赋值
+    </script>
+</body>
+
+</html>

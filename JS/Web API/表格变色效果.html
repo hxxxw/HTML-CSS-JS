@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格变色效果</title>
+    <style>
+        table {
+            width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 14px;
+            /*表格合并边框*/
+            border-collapse: collapse;
+        }
+
+        thead tr {
+            height: 30px;
+            background-color: darkgoldenrod;
+        }
+
+        tbody td {
+            height: 30px;
+            border-bottom: 1px solid #d7d7d7;
+            color: blue;
+            font-size: 12px;
+        }
+
+        .bg {
+            background-color: yellow;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <!-- tr是行标签 th 是表头 -->
+            <tr>
+                <th>代码</th>
+                <th>名称</th>
+                <th>最新公布值</th>
+                <th>累计净值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>156215</td>
+                <td>招商银行国债券</td>
+                <td>1.54</td>
+                <td>2.21</td>
+            </tr>
+            <tr>
+                <td>1546215</td>
+                <td>招商银行冰淇淋券</td>
+                <td>1.54</td>
+                <td>2.21</td>
+            </tr>
+            <tr>
+                <td>156415</td>
+                <td>招商银行优惠券</td>
+                <td>1.54</td>
+                <td>2.21</td>
+            </tr>
+            <tr>
+                <td>b341215</td>
+                <td>招商银行股份券</td>
+                <td>1.54</td>
+                <td>2.21</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        //思路 当鼠标经过tr行标签 改变当前行的背景颜色 只要获取表体内的行
+        var trs = document.querySelector('tbody').querySelectorAll('tr');
+        for (var i = 0; i < trs.length; i++) {
+            trs[i].onmouseover = function () {
+                this.className = 'bg';  // 当鼠标移动到元素上面时 调用bg这个类样式
+            }
+            trs[i].onmouseout = function () {
+                this.className = '';    // 当鼠标离开元素时不调用样式
+            }
+        }
+    </script>
+</body>
+
+</html>
