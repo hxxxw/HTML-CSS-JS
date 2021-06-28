@@ -53,6 +53,15 @@
         //.insertBefore(插入元素, 指定元素)  在指定元素的前面插入
         ul.insertBefore(document.createElement('li'), ul.children[0]);
 
+        //删除元素节点
+        ul.removeChild(ul.children[0]);   //删除指定元素  返回删除的节点
+
+        //复制节点
+        var li2 = ul.children[0].cloneNode();  // 如果cloneNode()内不写参数 为只复制节点本身 不带内容
+        var li3 = ul.children[0].cloneNode(true);  // 用true 能完全复制节点及内容
+        ul.appendChild(li2);   // 添加进ul最后一个子元素
+        ul.appendChild(li3);   // 添加进ul最后一个子元素
+
         //获取 第一个子元素 
         console.log(ul.children[0]);
         // 获取 最后一个元素

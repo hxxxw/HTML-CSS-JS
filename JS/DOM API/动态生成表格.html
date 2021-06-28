@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成表格</title>
+    <style>
+        table {
+            margin: 50px auto;
+        }
+
+        table thead tr {
+            background-color: cadetblue;
+        }
+
+        th,
+        td {
+            width: 100px;
+            height: 30px;
+            text-align: center;
+
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing='0'>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        // 模拟数据库数据
+        var datas = [
+            {
+                name: '吾拉音',
+                subject: 'JavaScript',
+                score: 100
+            },
+            {
+                name: 'hongli',
+                subject: 'JavaScript',
+                score: 94
+            },
+            {
+                name: 'qingming',
+                subject: 'JavaScript',
+                score: 59
+            },
+            {
+                name: '羞涩',
+                subject: 'JavaScript',
+                score: 84
+            },
+            {
+                name: '尴尬',
+                subject: 'JavaScript',
+                score: 89
+            }
+        ];
+        // 往 tbody 里面创建行
+        var tbody = document.querySelector('tbody');
+        for (var i = 0; i < datas.length; i++) {
+            // tbody里面创建行
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            // 行里面创建单元格
+            for (var k in datas[i]) {
+                var td = document.createElement('td');
+                td.innerHTML = datas[i][k]; // 获取到单元格数据
+                tr.appendChild(td);
+
+            }
+            //创建删除单元格
+            var td = document.createElement('td');
+            td.innerHTML = "<a href='javascript:;'>删除</a>"
+            tr.appendChild(td);
+        }
+        //添加删除单元格点击事件
+        var as = document.querySelectorAll('a');
+        for (var i = 0; i < as.length; i++) {
+            as[i].onclick = function () {
+                //点击a删除a当前所在行
+                tbody.removeChild(this.parentNode.parentNode);
+                // tbody > tr > td > a
+            }
+        }
+    </script>
+</body>
+
+</html>

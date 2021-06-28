@@ -13,11 +13,20 @@
             background-color: crimson;
             color: #fff;
         }
+
+        a {
+            float: right;
+            color: #fff;
+            padding-right: 5px;
+            text-decoration: none;
+        }
     </style>
 </head>
 <!-- 点击按钮后，就动态创建一个li 添加在ul里
 创建li的同时 把文本域里面的值给li
-要在前面显示就用 insertBefore 要在后面显示就用appendChild -->
+要在前面显示就用 insertBefore 要在后面显示就用appendChild 
+利用 removechild() 删除留言
+-->
 
 <body>
 
@@ -36,9 +45,18 @@
                 return null;
             } else {
                 var li = document.createElement('li');  //创建 li元素
-                li.innerHTML = text.value;     //将文本域的内容给 li显示
+                li.innerHTML = text.value + "<a href ='javascript:;'>删除</a>";
+                //将文本域的内容 和生成的a 给li    href ='javascript:; 取消操作
                 ul.insertBefore(li, ul.children[0]);  // 插入在 ul里最前面
                 text.value = '';    //清空文本域内容
+                //给a 绑定 点击事件 删除留言
+                var as = document.querySelectorAll('a');
+                for (var i = 0; i < as.length; i++) {
+                    as[i].onclick = function () {
+                        ul.removeChild(this.parentNode);
+                        //a的点击事件是 删除ul里面的li 也就是当前a的父级节点
+                    }
+                }
             }
         }
     </script>

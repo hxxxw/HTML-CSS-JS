@@ -1,0 +1,9 @@
+innerHTML 采用数组形式拼接 效率最高 结构稍微复杂
+    数组拼接参考如下
+        var array = [];
+        for (var i = 0; i < 1000; i++) {
+            array.push('<div></div>');
+        }
+        document.body.innerHTML = array.join('');
+
+createElement 创建多个元素效率稍微低一点 但是结构更清晰

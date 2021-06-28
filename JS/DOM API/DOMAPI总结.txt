@@ -1,0 +1,34 @@
+文档对象模型 简称DIM 是W3C组织推荐的处理可扩展标记语言的编程接口 W3C已经定义了系列的DOM接口
+对于javascript 为了能够使javascript操作HTML javascript就有了自己一套的DOM编程接口
+我们获取得到的DOM元素是一个对象(object),所以称为文档对象模型
+主要学习了DOM 对元素的操作 主要创建、增、删、改、查、属性操作、事件操作
+1、创建
+    document.write
+    innerHTML
+    createElement
+2、增加
+    appendChild
+    insertBefore
+3、删除
+    removeChild
+4、更改
+    修改元素属性：src、href、title等
+    修改元素文本内容：innerHTML、innerText
+    修改表单元素：display、value、type、disabled等
+    修改元素样式：style、className
+5、查找
+    DOM提供的API方法 getElementById、getElementsByTagName 古老方法 不推荐使用
+    H5提供的方法  querySelector、querySelectorAll  提倡使用
+    利用节点操作获取元素 parentNode(获取父级元素)、children(获取子元素)  提倡使用
+6、属性操作
+    setAttribute 设置自定义属性值
+    getAttribute 获取到属性值
+    removeAttribute  移除属性值
+7、事件类型
+    onclick  鼠标左键触发
+    onmouseover 鼠标经过触发
+    onmouseout  鼠标离开触发
+    onfocus   获得光标焦点触发
+    onblur   失去光标焦点触发
+    onmousedown  鼠标按下触发
+    onmouseup  鼠标弹起触发
