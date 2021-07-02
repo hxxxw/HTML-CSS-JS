@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重新发送短信</title>
+</head>
+
+<body>
+    <input type="text"><button>发送</button>
+    <script>
+        var btn = document.querySelector('button');
+        var count = 5; // 倒计时时间
+        btn.addEventListener('click', function () {
+            btn.disabled = true;
+            var countDown = setInterval(function () {
+                if (count == 0) {   //判断是否到时间
+                    clearInterval(countDown);
+                    btn.disabled = false;  // 取消禁用
+                    btn.innerHTML = '发送'
+                    count = 5;  //回到最大时间
+                } else {
+                    btn.innerHTML = '还剩下' + count + '秒';
+                    count--; //每隔一秒 进行自减
+                }
+            }, 1000)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时效果</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 70px;
+            height: 50px;
+            color: #fff;
+            background-color: #000;
+            font-size: 37px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        var h = document.querySelector('.hour');
+        var m = document.querySelector('.minute');
+        var s = document.querySelector('.second');
+        var inputTime = +new Date('2021-7-01 17:40:00');  // 返回用户输入时间的总毫秒数
+        countDown();   //先调用一次函数,防止第一次刷新页面有空白
+        var CD = setInterval(countDown, 1000);
+        function countDown() {
+            var nowTime = +new Date();  //返回当前的时间的总毫秒数
+            var times = (inputTime - nowTime) / 1000;   // 剩下的秒数
+            var hours = parseInt(times / 60 / 60 % 24);  //计算小时
+            hours = hours < 10 ? '0' + hours : hours;
+            h.innerHTML = hours;
+            var minute = parseInt(times / 60 % 60);  //计算分钟
+            minute = minute < 10 ? '0' + minute : minute;
+            m.innerHTML = minute;
+            var seconds = parseInt(times % 60);  //计算秒
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            s.innerHTML = seconds;
+            if (nowTime > inputTime) {
+                clearInterval(CD);  //当现在时间超过输入时间 停止定时器
+            }
+        }
+    </script>
+</body>
+
+</html>

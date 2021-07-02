@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+</head>
+
+<body>
+    <button>点击停止定时器</button>
+    <script>
+        // 第一种定时器 setTimeout(); 回调函数 到达延时时间会调用函数
+        //window.setTimeout(调用函数,延时时间) 但 window可以不写
+        //延时时间的单位是毫秒 1秒=1000毫秒 如果省略默认为0
+        //调用函数可以直接写函数或调用函数 
+        //页面可能有许多定时器 需要给每个定时器加变量名
+        function callName() {
+            console.log('我是通过调用函数的定时器');
+        }
+        var time1 = setTimeout(function () {
+            console.log('我是通过内部函数的定时器');
+        }, 2000)
+
+        var time2 = setTimeout(callName, 5000)
+
+        //停止定时器 clearTimeout(定时器变量名)
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            clearTimeout(time2);
+        })
+
+        // 第二种定时器 setInterval(); 回调函数 每隔一段时间会重复调用函数
+        //window.setInterval(调用函数,间隔时间) 但 window可以不写
+        //延时时间的单位是毫秒 1秒=1000毫秒 如果省略默认为0
+        //调用函数可以直接写函数或调用函数 
+        //页面可能有许多定时器 需要给每个定时器加变量名
+        var time3 = setInterval(function () {
+            console.log('setInterval()每隔5秒就会触发函数');
+        }, 5000)
+
+        //停止定时器
+        clearInterval(time3);
+    </script>
+</body>
+
+</html>

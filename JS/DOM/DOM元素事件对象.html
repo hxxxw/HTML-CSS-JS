@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM事件对象</title>
+</head>
+
+<body>
+    <div>div点击事件</div>
+    <a href="http://www.baidu.com">百度</a>
+    <script>
+        var div = document.querySelector('div');
+        div.addEventListener('click', function (e) {
+            console.log(e);
+            //这个e就是一个事件对象 当形参看 系统自动给值 不需要传递参数 可以自定义命名
+            //事件对象是我们事件一系列相关数据的集合 跟事件相关的 比如 鼠标点击就包含了鼠标的相关的信息等
+            // 如果是键盘事件 那么里面就包含了关于键盘事件的信息 比如按下了哪个键
+            // IE 678 通过window.event 获取到 兼容性的写法 e = e || window.event
+
+            //常见事件对象的属性和方法 
+            console.log(e.target);  // 返回触发事件的对象 有可能是内部的子元素触发或当前元素触发
+            console.log(this); // 返回绑定事件的对象  this永远指向div
+
+            console.log(e.type);  // 能返回触发事件的类型 如 click、mouseover、mouseout等等 
+            e.stopPropagation();  // 阻止事件冒泡阶段 它的上级事件不会触发
+        })
+        var a = document.querySelector('a');
+        a.addEventListener('click', function (e) {
+            e.preventDefault(); // 阻止默认行为 如:不让链接跳转 不让按钮提交
+        })
+    </script>
+</body>
+
+</html>
