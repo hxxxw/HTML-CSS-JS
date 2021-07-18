@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        ul {
+            float: right;
+            width: 50px;
+        }
+
+        ul>li {
+            position: relative;
+            left: 0px;
+            top: 0px;
+            display: block;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            background-color: red;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            overflow: none;
+        }
+
+        .s {
+            width: 200px;
+            height: 50px;
+            background-color: tomato;
+
+        }
+
+        .b1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+    <script src="animate.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li key=''>1<div class="b1 s"></div>
+        </li>
+        <li key=''>2<div class="b1 s"></div>
+        </li>
+        <li key=''>3<div class="b1 s"></div>
+        </li>
+    </ul>
+    <script>
+        var lis = document.querySelectorAll('li');
+        var bs = document.querySelectorAll('div');
+
+        // lis[0].addEventListener('mouseover', function () {
+        //     move(bs[0], -160);
+        // })
+        // lis[0].addEventListener('mouseout', function () {
+        //     move(bs[0], 0);
+        // })
+        // lis[1].addEventListener('mouseover', function () {
+        //     move(bs[1], -160);
+        // })
+        // lis[1].addEventListener('mouseout', function () {
+        //     move(bs[1], 0);
+        // })
+        // lis[2].addEventListener('mouseover', function () {
+        //     move(bs[2], -160);
+        // })
+        // lis[2].addEventListener('mouseout', function () {
+        //     move(bs[2], 0);
+        // })
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('key', i);  // 通过自定义属性 获取到i的值
+            lis[i].addEventListener('mouseover', function () {
+                move(bs[this.getAttribute('key')], -160);
+                // 在lis[i]里面的function属于回调函数 当执行的时候i值已经循环完了 为3
+                // 所以使用this.getAttribute('key')  记录每次的i值 放到 key属性中
+            })
+            lis[i].addEventListener('mouseout', function () {
+                move(bs[this.getAttribute('key')], 0);
+            })
+        }
+    </script>
+</body>
+
+</html>

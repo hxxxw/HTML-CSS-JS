@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素偏移量offset系列</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            position: relative;
+            margin: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+        }
+
+        .son {
+            margin-left: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: cornsilk;
+        }
+
+        .w {
+            margin: 50px;
+            height: 235px;
+            width: 235px;
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+        </div>
+    </div>
+    <div class="w"></div>
+    <script>
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        console.log(son.offsetTop);   //返回元素带有定位父元素上方的偏移
+        console.log(son.offsetLeft);   //返回元素带有定位父元素左边的偏移
+        console.log(son.offsetHeight);  //返回高度 包括自身、padding、边框等 
+        console.log(son.offsetWidth);   //返回宽度 包括自身、padding、边框等
+
+        console.log(father.offsetTop);  //如果没有父元素或者父元素没有定位设置 则根据body返回值
+        console.log(father.offsetLeft); //如果没有父元素或者父元素没有定位设置 则根据body返回值
+
+        //offset和style的区别 
+        // offset 可以得到任意样式表中的样式值  style只能得到行内样式表中的值
+        // offsetWidth 包含padding+border+width  style.width只能获得单纯的width
+        // offsetWidth是只读属性  style.width是可读写属性、
+        // 总结：想要获取元素位置 用offset比较方便  想给元素修改值 用style才能修改元素值
+
+        // 案例 获取鼠标在盒子内的坐标
+        var w = document.querySelector('.w');
+        w.addEventListener('click', function (e) {
+            // 获得鼠标在页面中坐标(e.pageX, e.pageY);
+            // 获得盒子在页面中的距离(box.offsetLeft, box.offsetTop);
+            // 利用鼠标距离页面的坐标减去盒子在页面中的位置 得到盒子内的坐标
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            console.log('鼠标在盒子的坐标为' + '(' + x + ',' + y + ')');
+        })
+    </script>
+</body>
+
+</html>

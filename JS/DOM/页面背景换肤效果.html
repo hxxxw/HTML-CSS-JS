@@ -44,11 +44,14 @@
     <script>
         var imgs = document.querySelector('.box').querySelectorAll('img'); //更严谨的写法
         for (var i = 0; i < imgs.length; i++) {
-            imgs[i].onclick = function () {
-                // 将每个img src的路径给body 作为背景
-                // console.log(this.src);
+            // imgs[i].onclick = function () {
+            //     // 将每个img src的路径给body 作为背景
+            //     // console.log(this.src);
+            //     document.body.style.backgroundImage = 'url(' + this.src + ')';
+            // }
+            imgs[i].addEventListener('click', function () {
                 document.body.style.backgroundImage = 'url(' + this.src + ')';
-            }
+            })
         }
     </script>
 </body>

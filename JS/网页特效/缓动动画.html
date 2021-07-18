@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            color: #fff;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn500"> 点击让box1移动到500</button>
+    <button class="btn800"> 点击让box1移动到800</button>
+    <div class="box1">box1</div>
+    <script>
+        // 核心算法  （目标值-现在位置）/10 作为每次移动的步长 当盒子位置等于目标位置停止定时器
+        // 一定要清除页面内外边距 防止计算 step出现超位置
+        var box1 = document.querySelector('.box1');
+        var btn500 = document.querySelector('.btn500');
+        var btn800 = document.querySelector('.btn800');
+
+        function move(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                // 步长公式 （目标值-现在位置）/10 注意把步长取整 
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                //  当box1往右走向上取整 当box1往左走向下取整
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+
+                        callback();
+                    }
+                } else {
+                    obj.style.left = obj.offsetLeft + step + 'px';
+                    console.log(step);
+                }
+            }, 15);
+        }
+        btn500.addEventListener('click', function () {  //button 按下调用函数
+            box1.style.backgroundColor = 'blue';
+            box1.innerHTML = ' ';
+            move(box1, 500, function () {
+                box1.style.backgroundColor = 'red';
+                box1.innerHTML = '我已到达500位置';
+
+            });
+        });
+        btn800.addEventListener('click', function () {  //button 按下调用函数
+            box1.style.backgroundColor = 'blue';
+            box1.innerHTML = ' ';
+            move(box1, 800, function () {
+                box1.style.backgroundColor = 'green';
+                box1.innerHTML = '我已到达800位置';
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+offset系列属性  常用于获取元素位置 
+client系列属性  常用于获取元素大小
+scroll系列属性  常用于获取滚动距离 页面的滚动距离用 window.pageYOffset 
+  
+封装简单动画函数
+网页轮播
