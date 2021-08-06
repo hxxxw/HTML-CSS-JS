@@ -88,7 +88,11 @@ window.addEventListener('load', function () {
             login(token);
         } else {
             alert('请填写完信息');
+            return false;
         }
+        container.classList.remove("right-panel-active");
+        formReset();
+
     })
     firstForm.addEventListener("submit", (e) => e.preventDefault());
     secondForm.addEventListener("submit", (e) => e.preventDefault());

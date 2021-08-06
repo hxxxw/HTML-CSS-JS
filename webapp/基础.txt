@@ -1,0 +1,39 @@
+视口(viewport) 就是浏览器显示页面内容的屏幕区域。视口可以分为布局视口、视觉视口、理想视口
+    一般移动设备的浏览器默认设置了一个分辨率为980px的布局视口。用于解决早期的网页展示
+    现在一般用理想视口(ideal viewport) 使网站在移动端有最理想的浏览和阅读宽度设定的
+        需要手动添加 meta视口标签通知浏览器操作
+    视口标签 meta <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0 ">
+    width           宽度设置的是viewport宽度 可以设置device-width(设备宽度)特殊值
+    user-scalable   用户是否可以缩放 yes(1)或no(0)
+    initial-scale   初始化缩放比 大于0的数值 一般为1.0
+    maximum-scale   最大缩放比
+    minimum-scale   最小缩放比 
+
+    标准的viewport配置 
+    width=device-width
+    user-scalable=no
+    initial-scale=1.0
+    maximum-scale=1.0
+    minimum-scale=1.0
+
+二倍图 
+    在移动端 物理像素(分辨率)和px比例不一样  在iphone6/7/8 与1px 的物理像素比为 1:2
+    所以对于一张50*50的图片 按照物理像素比 不一样 会放大这张图片 为100*100
+    就需要准备一张二倍图 准备一张有100*100的图片 在pc端上缩小为50*50 那么在移动端就能高清显示
+    根据实际需要 准备多倍图 
+
+移动端开发选择
+    单独制作移动端页面          响应式页面兼容移动端页面
+    流式布局(百分比布局)          媒体查询
+    flex 弹性布局(好用！)         bootstarp  
+    less+rem+媒体查询布局
+    混合布局
+移动端技术解决方案
+    移动端初始化使用网上的初始化CSS 
+    box-sizing:border-box 改成CSS3盒子模型。在CSS3盒子模型中 padding和border不会撑大盒子
+移动端特殊样式
+    -webkit-tap-highlight-color: transparent; 取消链接点击会高亮
+    -webkit-appearance: none;  取消移动端上一些默认的样式外观
+    -webkit-touch-callout: none;  禁止长按页面弹出菜单
+
+     
