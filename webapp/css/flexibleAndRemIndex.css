@@ -1,3 +1,9 @@
+@media screen and (min-width:750px) {
+    html{
+        font-size: 75px!important;
+        /* 确保当元素大于750px时 大小固定在75 权重!important */
+    }
+}
 body {
     min-width: 320px;
     max-width: 750px;
@@ -8,4 +14,83 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f2f2f2;
   }
- 
+ .search-top{
+    min-width: 320px;
+    max-width: 750px;
+     display: flex;
+     justify-content: space-between;
+     position: fixed;
+     top: 0px;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 100%;
+     height: 1.173333rem;
+     background-color: #ffc001;
+ }
+ .search-top .classify{
+    width: .586667rem;
+    height: .933333rem;
+    background: url(../img/classify.png) no-repeat;
+    background-size: .586667rem .933333rem;
+    margin: .106667rem;
+ }
+ .search-top .login{
+     width: 1rem;
+     height: .9rem;
+     text-align: center;
+     line-height: .933333rem;
+     text-decoration: none;
+     font-size: .333333rem;
+    margin: .066667rem auto .066667rem;
+     color: #fff;
+ }
+ .search-top .search{
+     flex: 1;
+     height: .933333rem;
+     background-color: #fff;
+     border-radius: .533333rem;
+     margin-top: .106667rem;
+     color: #ccc;
+     font-size: .333333rem;
+     padding-left: .4rem;
+     line-height: .933333rem;
+ }
+ .banner {
+     height: 4.906667rem;
+ }
+ .banner img{
+     width: 100%;
+     height: 100%;
+ }
+ .advertising{ 
+     display: flex;
+ }
+ .advertising a{
+     flex: 1;
+ }
+ .advertising a img{
+     width: 100%;
+ }
+ .nav{
+     width: 100%;
+
+ }
+ .nav a{
+    float: left;
+    width: 2rem;
+    height: 1.866667rem;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+ }
+ .nav img{
+    display: block;
+    width: 1.093333rem;
+    height: 1.093333rem;
+    margin: .066667rem auto 0;
+ }
+ .nav span{
+    display: block;
+    margin-top: .066667rem;
+    font-size: .266667rem;
+ }

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        [class^='col'] {
+            border: 1px solid #ccc;
+        }
+
+        .row div {
+            height: 50px;
+        }
+
+        .container .row:nth-child(1) {
+            background-color: rebeccapurple;
+            color: #ffff;
+        }
+
+        .yellowgreen {
+            background-color: yellowgreen;
+        }
+
+        .springgreen {
+            background-color: springgreen;
+        }
+
+        .seagreen {
+            background-color: seagreen;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 布局容器必须叫 container Bootstrap已经预先定义了这个类 -->
+    <!-- Bootstrap栅格系统通过一系列的行(column)和列(row)组合创建布局 系统将container分为12分 可以同时为一个元素指定多个在不同大小下设置类名
+        超小屏幕(手机 <768px) 类前缀.col-xs-份数    小屏设备(平板 >=768px) 类前缀.col-sm-份数
+        中等屏幕(桌面显示器 >=992px) 类前缀.col-md-份数  宽屏设备(宽大显示器 >=1200px) 类前缀.col-lg-份数
+    -->
+    <div class="container">
+        <div class="row">
+            <!-- 在大型屏幕下分4个 在中等屏幕下分3个 在小屏下分2个 在超小屏下分1个  显示 -->
+            <div class="col-lg-3 col-md-3 col-sm-6 col-sx-12">111</div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-sx-12">111</div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-sx-12">111</div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-sx-12">111</div>
+        </div>
+        <div class="row yellowgreen">
+            <!-- 行嵌套 做行嵌套时候 先加一个row 这样可以取消父元素的padding值高度和父级一样 -->
+            <div class="col-lg-4 col-md-4 ">
+                <div class="row">
+                    <div class="col-md-3 springgreen">a</div>
+                    <div class="col-md-9 springgreen">b</div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 ">2</div>
+            <div class="col-lg-4 col-md-4 ">3</div>
+        </div>
+        <div class="row">
+            <!-- 列偏移 col-md-offset-该元素要偏移的份数 -->
+            <div class="col-md-4 seagreen">左侧</div>
+            <div class="col-md-4 seagreen col-md-offset-4">右侧</div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 yellowgreen">中间</div>
+        </div>
+        <div class="row">
+            <!-- 列排序 col-md-push-*往右边推  col-md-pull-*往左边拉 -->
+            <div class="col-md-4 col-md-push-8">左侧</div>
+            <div class="col-md-8 col-md-pull-4">右侧</div>
+        </div>
+        <div class="row">
+            <!-- 针对不同设备内容元素的显示和隐藏
+            .hidden-xs 超小屏幕下隐藏 .hidden-sm小型屏幕下隐藏 .hidden-md中等屏幕下隐藏 .hidden-lg大型屏幕下隐藏  
+            与之相反的是visible-尺寸 -->
+            <div class="col-md-4 col-xs-6 ">
+                <div class="visible-sm" style="background-color:tomato;">我只会在小型屏幕中显示</div>
+            </div>
+            <div class="col-md-4 col-xs-6 hidden-sm hidden-xs ">我在小型屏幕以下会被隐藏</div>
+            <div class="col-md-4 col-xs-6 ">3333</div>
+        </div>
+    </div>
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
