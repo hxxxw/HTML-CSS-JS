@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量定义and预编译and变量提升</title>
+    <script>
+        /*
+        用var 定义了同名变量 并不会报错 后定义的变量会覆盖前定义的变量
+        并可以先定义后使用 JS会边预解析边执行代码 预解析(变量提升)：函数及变量的声明都将被提升到函数的最顶部。
+        ES6中增加了let、const变量定义
+         */
+        /*
+        变量声明会提升 而变量初始化赋值不会提升
+        var x=3; 在js中为：var x; x=3;
+        say(); 2
+        function say() {   1 这个函数定义声明会提升在say();之前
+            console.log("111");
+        }
+        // ES6之前 使用 var 关键字声明的变量不具备块级作用域的特性，它在 {} 外依然能被访问到。
+        {
+        var xx = 000;
+        var num = 111;
+        var num = 222;
+        console.log(num); //不会报错并打印222  重置覆盖变量
+
+        console.log(num1); //不会报错显示undefined 变量提升
+        var num1 = 111;
+        }
+        console.log(xx);  // 能正常输出
+         */
+        /*
+        // 使用ES6新增命名方式 let 关键字来实现块级作用域。
+        {
+        let xx = 333;
+        let num = 111;//报错 has already been declared 不会重置变量
+        let num = 222;
+        console.log(num);
+
+        console.log(nun);//报错 'nun' before initialization 不会变量提升
+        let nun;
+        }
+        console.log(xx);  // 报错
+        
+        const const 用于声明一个或多个常量，声明时必须进行初始化，且初始化后值(不可再修改)
+        const 与let定义的变量相似
+        二者都是块级作用域，都不能和它所在作用域内的其他变量或函数拥有相同的名称
+
+        用const定义的数组、对象。内容可以重新赋值、增加 但是不能对整个数组、对象赋值
+        const car = { type: "aa", name: 'bb', color: "cc" };  //对象
+        car.color = "red";// 修改属性:
+        car.owner = "Johnson"; // 添加属性
+        car = {type:"Volvo", model:"EX60", color:"red"};    // 错误
+
+        const house = ['11', '22', '33'];  //数组
+        house[0] = '66';  //修改数组元素
+        house.push('999') //追加数组元素
+        house = ['111', 'qaw', 'qwedff']   //错误
+        */
+
+      
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
