@@ -28,11 +28,14 @@ window.addEventListener('load', function () {
         li.setAttribute('index', i); //为每个li设置索引号
         ol.appendChild(li);//在ol里添加一个li
         li.addEventListener('click', function () {
-            // li绑定点击事件，做排他算法
-            for (var i = 0; i < ol.children.length; i++) {
-                ol.children[i].className = ''; //先清除所有的类名
-            }
-            this.className = 'current'; //为当前li设置current类
+            // 方法1：排他算法
+            // for (var i = 0; i < ol.children.length; i++) {
+            //     ol.children[i].className = ''; //先清除所有的类名
+            // }
+            // this.className = 'current'; //为当前li设置current类
+            // 方法2 利用classList
+            ol.querySelector('.current').classList.remove('current');
+            this.classList.add('current');
             // console.log(this.getAttribute('index'));
             //点击小圆圈移动图片 移动的对象为ul  移动距离为 圆圈的索引号*图片宽度 为负值
             //索引号通过getAttribute('index') 获得

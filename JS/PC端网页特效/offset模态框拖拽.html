@@ -168,7 +168,7 @@
         // 触发事件包括：鼠标按下 mouseDown 鼠标移动mousemove 鼠标弹起 mouseup
         // 拖拽过程 鼠标移动中 将最新的值给模态框的left和top值 具体为 鼠标的坐标减去鼠标在盒子内的坐标
         title.addEventListener('mousedown', function (e) {
-            var x = e.pageX - login.offsetLeft; //得到鼠标在盒子中距离右侧的距离
+            var x = e.pageX - login.offsetLeft; //得到鼠标在盒子中距离左侧的距离
             var y = e.pageY - login.offsetTop;  //得到鼠标在盒子中距离上方的距离
             title.addEventListener('mousemove', move);
             function move(e) {

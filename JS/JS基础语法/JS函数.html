@@ -16,16 +16,24 @@
 
         // 用函数表达式声明函数  var 变量名 = function(形参..){函数执行内容};
         // 没有函数名 但可用变量名调用 变量名(实参)
-        function fn() {
+        function fn(...values) {
             console.log(arguments);
             //函数内置arguments对象，里面存储了所有传递过来的实参
+            //或者可使用 扩展运算符 将传递过来的实参打包成数组
             //具有数组的length属性、按照索引存储
+            console.log(values);
         }
         fn(1, 2, 3);
 
+        //在ES6中 可以直接在形参中后面通过 = 指定默认值(默认值可以是别的函数的返回值)
+        function getdefault(a = 5, b = '111') {
+            console.log(a + 'and' + b);
+        }
+        getdefault();
+
         function getSum(num1, num2) {
             var sum = num1 + num2;
-            return sum;  // 函数运行遇到return 后就会终止后面代码
+            return sum;
         }
         var s = getSum(1, 54);
         console.log(s);
@@ -35,6 +43,18 @@
             return [number1 + number2, number1 - number2, number1 * number2, number1 / number2];
         }
         console.log(getResult(1, 3));
+
+        /* ES6 箭头函数  目的为简化定义代码
+       let 函数名称 = (形参列表) => {
+            封装内的代码;
+       }
+       */
+        let say = names => console.log(names);  //如果箭头函数只有一个形参一句代码 可省略(){}
+        say('666');
+        let move = (sleep, addr) => {
+            console.log('需要耗费' + addr / sleep);
+        }
+        move(2, 10);
     </script>
 </head>
 
