@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体查询</title>
+    <!-- 针对不同的屏幕尺寸 用媒体查询 调用不同的css样式文件 -->
+    <!-- <link rel="stylesheet" href="对应尺寸的css样式" media="mediatype(媒体类型) and|not|only(关键字) (媒体特性)"> -->
+    <style>
+        /* 媒体查询(@media) 是CSS3的新语法 使用媒体查询能在不同屏幕尺寸下设置不同的样式
+            像 javascript 下的resize事件 
+        */
+        /* @media(开头) mediatype(媒体类型) and|not|only(关键字) (media feature(媒体特性必须有小括号包含)) {
+                改变的元素{改变的样式}
+            }
+            mediatype(媒体类型)：all用于所有设备 print用于打印机和打印预览 scree用于电脑屏幕、手机平板
+            and|not|only(关键字):and将多个媒体特性连接一起 not排除某个媒体类型 only指定某个媒体类型可略
+            media feature(媒体特性)常用的有width页面可视区宽度 min-width最小可视区宽度 max-width最大可视区宽度
+        */
+        @media screen and (max-width: 599px) {
+
+            /* 在屏幕上 并且最大的宽度为599px 在小于等于599时 执行下面的样式*/
+            body {
+                background-color: aqua;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+
+            /* 在屏幕上 并且最小的宽度为600px 在大于等于600时 执行下面的样式*/
+            body {
+                background-color: red;
+            }
+        }
+
+        @media screen and (min-width:1000px) {
+            body {
+                background-color: chartreuse;
+            }
+        }
+
+        /* 多个@media会覆盖之前的样式要遵循从小到大或从大到小 层叠性 */
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            width: 15px;
+            height: 20px;
+            font-size: 15px;
+            top: 0;
+            left: -16px;
+            cursor: pointer;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        这是个广告
+        <img src="../../images/图层136.png" alt="">
+        <i class="close-btn">X</i>
+    </div>
+    <script>
+        var closebtn = document.querySelector('i');
+        var box = document.querySelector('.box');
+        closebtn.onclick = function () {
+            box.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

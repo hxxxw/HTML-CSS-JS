@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            width: 500px;
+            height: 500px;
+            background: url(img/d3.png) no-repeat;
+            border: 2px solid red;
+            /* 背景缩放 background-size: 数值|百分比|cover|contain; */
+            /* background-size: 200px 100px; 宽度  高度 只写一个值为宽度 高度等比例缩放  百分比与数值一样*/
+            /* background-size: cover; 图片完全覆盖内容区域 可能有部分背景显示不全 */
+            background-size: contain;
+            /*将图像等比例拉伸到最大尺寸 宽或高到最大值停止拉伸 可能有空白区域*/
+        }
+
+        /* 二倍图 分析  */
+        .demo {
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            background: url(img/apple100.jpg);
+            background-size: 50px 50px;
+            /* 在web端缩放为跟内容一样 在移动端会放大2倍 这就是二倍图的用法 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a"></div>
+    <div class="demo"></div>
+</body>
+
+</html>

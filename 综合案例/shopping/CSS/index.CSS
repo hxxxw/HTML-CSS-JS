@@ -4,16 +4,67 @@
     height: 455px;
     /* background-color: skyblue; */
 }
+/* 轮播图部分开始 */
 .main .focus {
-    width: 720px;
+    position: relative;
+    width: 721px;
     height: 455px;
+    overflow: hidden;
     /* background-color: springgreen; */
 }
+.arrow-r {
+    position: absolute;
+    top: 184px;
+    right: 0px;
+    display: none;
+    font-family: 'icomoon';
+    font-size: 40px;
+    color: #fff;
+    z-index: 1;
+}
+.arrow-l {
+    position: absolute;
+    top: 184px;
+    left: 0px;
+    display: none;
+    font-family: 'icomoon';
+    font-size: 40px;
+    color: #fff;
+    z-index: 1;
+}
+.focus ul {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 550%;
+
+}
+.focus ul li {
+    float: left;
+}
+.focus .circle{
+    position: absolute;
+    bottom: 15px;
+    left: 300px;
+    height: 15px;
+}
+.circle li{
+    float: left;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    margin-left: 4px;
+}
+.circle .current {
+    background-color: coral;
+}
+/* 轮播图结束 */
 .main .newsflash {
     width: 250px;
     height: 455px;
-    
 }
+
 .newsflash .news {
     width: 250px;
     height: 164px;

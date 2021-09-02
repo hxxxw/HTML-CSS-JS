@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 立即执行函数 不需要调用，立马能够自己执行的函数
+        // 最大的优点是能创立多个不同的作用域 不会冲突
+        // 写法 ：(function () { })(); 或者(function () { }());
+        (function (a) {
+            console.log(a);
+        })('这是第一种写法');
+
+        (function (a) {
+            console.log(a);
+        }('这是第二种写法'))
+    </script>
+</body>
+
+</html>

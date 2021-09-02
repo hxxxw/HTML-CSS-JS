@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 50vw;
+            height: 25vw;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+<script>
+    // Touch触屏事件
+    // touchstart 手指触摸到一个dom元素时触发
+    // touchmove  手指在一个dom元素上滑动触发
+    // touchend   手指在一个dom元素上移开触发
+    var div = document.querySelector('div');
+    div.addEventListener('touchstart', function () {
+        this.style.backgroundColor = 'red';
+    })
+    div.addEventListener('touchend', function () {
+        this.style.backgroundColor = 'blue';
+    })
+    div.addEventListener('touchmove', function (e) {
+        // this.style.borderRightColor = 'black';
+        // console.log('move! move! move!');
+        console.log(e.targetTouches[0]);
+        // targetTouches[0]正在触摸当前元素的第一个手指的相关信息
+        // 重点信息有 
+        // clientX/Y 相对于当前可视区的坐标
+        // pageX/Y  相对于整个页面的坐标
+        // screenX/y  相对于手机屏幕的坐标
+        // target  当前元素的类型
+    })
+    // TouchEvent触屏事件对象 是一类描述手指在触摸屏幕的状态变化的事件
+    // 常使用的三个对象：
+    // touches  正在触摸屏幕的所有手指的一个列表
+    // targettouches  正在触摸当前dom元素上的手指的一个列表 (重点)
+    // changedtouches 手指状态发生变化的列表,从无到有,从有到无变化
+</script>
+
+</html>

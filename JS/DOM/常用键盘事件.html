@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        // 常用键盘事件
+        // 1、keyup 按键弹起时候触发
+        document.addEventListener('keyup', function () {
+            alert('按键弹起了');
+        })
+        // 2、keydown 按键按下时候触发  能识别功能键  
+        document.addEventListener('keydown', function () {
+            console.log('我按下了');
+            //只要没松开 就会一直执行
+        })
+        // 3、keypress 按键按下时候触发 不能识别功能键 比如 ctrl shift 左右方向箭头等
+        document.addEventListener('keypress', function () {
+            console.log('我按下了');
+            //只要没松开 就会一直执行
+        })
+        // 上面三个事件的执行顺序 keydowm > keypress > keyup
+
+        //键盘事件对象中的keyCode属性 可以得到相应按键的ASCII码值
+        document.addEventListener('keypress', function (e) {
+            console.log(e.keyCode);
+            // keyup和keydown 事件 不会区分大小写
+            // keypress 区分大小写
+            if (e.keyCode == 65) {
+                alert('你按了a键');
+            }
+        })
+    </script>
+</body>
+
+</html>

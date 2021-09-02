@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="fastclick.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 移动端的click事件会有300ms的延迟，原因是因为移动端屏幕会双击拖动缩放( double tap to zoom)页面
+        // 通过调用别人写的js插件 解决延迟 1、引入js文件 2、调用
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function () {
+                FastClick.attach(document.body);
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('../../fonts/icomoon.eot?pfb92j');
+            src: url('../../fonts/icomoon.eot?pfb92j#iefix') format('embedded-opentype'),
+                url('../../fonts/icomoon.ttf?pfb92j') format('truetype'),
+                url('../../fonts/icomoon.woff?pfb92j') format('woff'),
+                url('../../fonts/icomoon.svg?pfb92j#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .bg {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background: rgba(0, 0, 0, .3);
+            /* background-color: red; */
+        }
+
+        .login {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 600px;
+            height: 400px;
+            background-color: #fff;
+            box-shadow: 0px 0px 20px #ddd;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        .login_herder {
+            width: 200px;
+            margin: 10px auto;
+        }
+
+        #jump {
+            list-style: none;
+            font-size: 25px;
+            outline: none;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .login_title {
+            position: relative;
+            height: 100px;
+            width: 600px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 100px;
+            font-size: 25px;
+            font-family: 700;
+            cursor: move;
+        }
+
+        span {
+            position: absolute;
+            top: -36px;
+            right: -6px;
+            font-size: 50px;
+            color: red;
+            cursor: pointer;
+        }
+
+        .login_content {
+            padding-right: 80px;
+        }
+
+        .login_user {
+
+            height: 50px;
+            width: 100%;
+            text-align: right;
+            line-height: 50px;
+            background-color: #fff;
+        }
+
+        .login_pwd {
+            margin-top: 25px;
+            height: 50px;
+            width: 100%;
+            text-align: right;
+            line-height: 50px;
+            background-color: #fff;
+        }
+
+        input[name] {
+            height: 30px;
+            width: 350px;
+            padding-left: 5px;
+        }
+
+        #login_button {
+            margin-top: 30px;
+            margin-left: 170px;
+            display: inline-block;
+            list-style: none;
+            height: 40px;
+            width: 300px;
+            border: 2px solid #000;
+            color: #000;
+            font-size: 30px;
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 点击弹出灰色半透明层、弹出模态框
+    鼠标放到模态框最上面一行 ，可以进行拖拽 在页面中移动 -->
+    <div class="login_herder"> <a href="javascript:;" id="jump">点击弹出登陆框</a></div>
+    <div class="login">
+        <div class="login_title">
+            登陆会员<span style=" font-family: 'icomoon'; "></span>
+        </div>
+        <div class="login_content">
+            <div class="login_user">
+                <label>用户名：</label>
+                <input type="text" placeholder="请输入用户名" name="info[username]" id="username" class="username">
+            </div>
+            <div class="login_pwd">
+                <label>登陆密码：</label>
+                <input type="password" placeholder="请输入密码" name="info[password]" id="password" class="password">
+            </div>
+        </div>
+        <div class="login_button"> <a href="javascript:;" id="login_button">登陆会员</a></div>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="bg"></div>
+    <div class="text"></div>
+    <script>
+        var login = document.querySelector('.login');
+        var mask = document.querySelector('.bg');
+        var jump = document.querySelector('#jump');
+        var quit = document.querySelector('span');
+        var title = document.querySelector('.login_title');
+        // 弹起与关闭
+        jump.addEventListener('click', function () {
+            login.style.display = 'block';
+            mask.style.display = 'block';
+        })
+        quit.addEventListener('click', function () {
+            login.style.display = 'none';
+            mask.style.display = 'none';
+        })
+        // 拖拽效果
+        // 触发事件包括：鼠标按下 mouseDown 鼠标移动mousemove 鼠标弹起 mouseup
+        // 拖拽过程 鼠标移动中 将最新的值给模态框的left和top值 具体为 鼠标的坐标减去鼠标在盒子内的坐标
+        title.addEventListener('mousedown', function (e) {
+            var x = e.pageX - login.offsetLeft; //得到鼠标在盒子中距离左侧的距离
+            var y = e.pageY - login.offsetTop;  //得到鼠标在盒子中距离上方的距离
+            title.addEventListener('mousemove', move);
+            function move(e) {
+                login.style.left = e.pageX - x + 'px';  //将鼠标的位置减去鼠标在盒子内的坐标 再给绝对定位的位置
+                login.style.top = e.pageY - y + 'px';
+            }
+            //鼠标弹起 让鼠标移动移除
+            title.addEventListener('mouseup', function () {
+                title.removeEventListener('mousemove', move);
+            })
+        })
+    </script>
+</body>
+
+</html>

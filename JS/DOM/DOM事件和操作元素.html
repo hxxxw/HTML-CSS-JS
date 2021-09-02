@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #timetext {
+            width: 350px;
+            height: 30px;
+            line-height: 30px;
+            background-color: skyblue;
+            color: black;
+        }
+
+        #classdiv {
+            width: 100px;
+            height: 50px;
+            background-color: seagreen;
+        }
+
+        .change {
+            background-color: blue;
+            margin: 0 auto;
+            font-size: 20px;
+            font-weight: 700;
+            color: cornsilk;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">按下</button>
+    <div>console 输出</div>
+    <button id="timer">点击显示当前时间</button>
+    <div id="timetext">未刷新</div>
+    <p></p>
+    <p>根据不同时间，页面显示不同的图片</p>
+    <img src="../../images/m1.jpg" alt="">
+    <p id="greet"></p>
+    <button id='inputbtn'>表单提交按钮</button>
+    <input type="text" value="输入内容">
+    <div id="classdiv">修改元素样式</div>
+    <div class="text">通过js绑定类名 实现变化</div>
+    <script>
+        // 事件由三部分组成  事件源  绑定事件类型  事件处理程序
+        // 1、事件源  事件被触发的对象
+        var btn = document.getElementById('btn');
+        // 2、绑定事件类型  如何触发 什么事件  比如 鼠标点击 鼠标经过 还是键盘按下
+        // 3、事件处理  通过一个函数赋值的方式 完成
+        btn.onclick = function () {  // 通过 鼠标点击 弹出窗体
+            alert('事件为弹出窗体');
+        }
+        var demo = document.querySelector('div');
+        demo.onclick = function () {
+            console.log('我被选中了');
+        }
+        //一、改变元素内容
+        // 1、获取元素
+        var timeBtn = document.getElementById('timer');
+        var timeText = document.getElementById('timetext');
+        // 2、注册事件
+        timeBtn.onclick = function () {
+            timeText.innerHTML = getDate();
+            //  .innerText .innerHTML 都可改变元素内容 但是 .innerHTML 会在js中识别 html标签
+            console.log(timeText.innerHTML);  //  .innerText .innerHTML 都是可读写的 
+        }
+
+        function getDate() {
+            var now = new Date(); // 如果里面没有跟任何参数，则会创建系统当前时间 要调用Date内的函数方法必须先创建对象
+            var year = now.getFullYear();//获取当前的年份
+            var month = now.getMonth() + 1; // getMonth() 为0~11 所以需要+1 才能获取当前月份
+            var nowdate = now.getDate();//获取 几号
+            var day = now.getDay();//当前是周几 周一返回1 周六返回6 注意周日返回0
+            var datearr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            var hours = now.getHours();  //返回当前小时
+            hours = hours < 10 ? '0' + hours : hours;
+            var minute = now.getMinutes(); //返回当前分钟
+            minute = minute < 10 ? '0' + minute : minute;
+            var seconds = now.getSeconds(); //返回当前秒
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            return year + '年' + month + '月' + nowdate + '号 ' + datearr[day] + hours + ':' + minute + ':' + seconds;
+        }
+        //元素也可以不添加事件 直接调用函数
+        var p = document.querySelector('p');
+        p.innerHTML = getDate();
+        //二、修改元素属性  常用 src、href、id、alt、title 等
+        var img = document.querySelector('img');
+        var greetp = document.querySelector('#greet');
+        var date = new Date();
+        var h = date.getHours();
+        //根据时间 进行判断
+        if (h < 12) {
+            img.src = "../../images/m2.jpg";
+            greetp.innerHTML = '上午好';
+        } else if (h < 14 && h > 12) {
+            img.src = "../../images/m3.jpg";
+            greetp.innerHTML = '中午好';
+        } else {
+            img.src = "../../images/m4.jpg";
+            greetp.innerHTML = '下午好';
+        }
+        //三、修改表单属性
+        //利用DOm可以操作如下表单的属性 type、value、checked、selected、disabled
+        var inputbtn = document.getElementById('inputbtn');
+        var input = document.querySelector('input');
+        inputbtn.onclick = function () {
+            input.value = '禁止输入';
+            this.disabled = true;
+            // disabled 禁用按钮 this 是指向当前事件函数的调用者 也就是inputbtn
+        }
+        //四、修改元素样式属性
+        //element.style       行内样式操作
+        var classdiv = document.getElementById('classdiv');
+        classdiv.onclick = function () {  //用于样式比较少
+            this.style.backgroundColor = 'red';
+            this.style.width = '150px';
+            // js修改style 样式操作 css权重比较高
+        }
+        //element.className   类名样式操作 在style中创建类 在js中调用 适用于样式比较多 会覆盖原来的类名
+        var text = document.querySelector('.text');
+        text.onclick = function () {
+            // this.className = 'change';
+            this.className = 'text change';//这会保留原来的类名
+        }
+    </script>
+</body>
+
+</html>

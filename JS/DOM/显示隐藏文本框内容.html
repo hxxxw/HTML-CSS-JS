@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示隐藏文本内容</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .search {
+            position: absolute;
+            top: 24px;
+            left: 348px;
+            width: 538px;
+            height: 36px;
+            border: 2px solid #b1191a;
+            box-sizing: border-box;
+        }
+
+        .search input {
+            float: left;
+            width: 454px;
+            height: 32px;
+            padding-left: 10px;
+            border: none;
+            outline: none;
+
+        }
+
+        .search button {
+            float: left;
+            width: 80px;
+            border: none;
+            height: 32px;
+            background-color: #b1191a;
+            font-size: 14px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <input type="search" name="" id="" placeholder="语言开发">
+        <button>搜索</button>
+    </div>
+    <script>
+        var text = document.querySelector('input');
+        text.onfocus = function () {   //获取焦点触发
+            text.placeholder = " ";
+        }
+        text.onblur = function () {  //失去焦点触发
+            text.placeholder = 'c++教程';
+        }
+
+    </script>
+</body>
+
+</html>

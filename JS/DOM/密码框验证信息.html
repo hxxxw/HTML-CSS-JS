@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码框验证</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+        }
+
+        .w {
+            position: relative;
+            width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .w input {
+            margin-top: 20px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            outline: none;
+            width: 300px;
+        }
+
+        .w input[type=submit] {
+            width: 100px;
+            height: 30px;
+            color: #fff;
+            background-color: crimson;
+
+        }
+
+        .message {
+            display: inline-block;
+            color: #999;
+            font-size: 12px;
+            background: url(../../images/mess.png) no-repeat left center;
+            padding-left: 20px;
+        }
+
+        .change_w {
+            background: url(../../images/wrong.png) no-repeat left center;
+        }
+
+        .change_r {
+            background: url(../../images/right.png) no-repeat left center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <h3>登陆</h3>
+        <input type="text" placeholder="请输入用户名"><br>
+        <input type="password" name="" id="psd" placeholder="请输入密码">
+        <p class="message">请输入不少于8位不多于15位的密码</p>
+    </div>
+    <script>
+        var psd = document.getElementById('psd');
+        var message = document.querySelector('.message');
+        psd.onblur = function () {   // 失去焦点时触发
+            if (this.value.length < 8 || this.value.length > 15) {
+                message.className = 'message change_w';
+                message.innerHTML = '输入有误';
+            } else {
+                message.className = 'message change_r';
+                message.innerHTML = '输入正确';
+            }
+        }
+    </script>
+</body>
+
+</html>

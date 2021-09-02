@@ -1,0 +1,7 @@
+rem+flexible.js 适配方案
+flexible是淘宝团队出的移动端适配库
+它会将当前设备划分成10等份 并修改成相应的html font-size文字大小
+
+cssrem VScode插件 能将px转换成rem 
+    但是它根据VScode默认html字体大小设置 需要 修改VScode默认大小
+        在管理>搜索 cssroot >修改大小

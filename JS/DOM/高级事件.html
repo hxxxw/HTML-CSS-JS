@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>传统方式</button>
+    <button>方法监听注册方式</button>
+    <script>
+        var btns = document.querySelectorAll('button');
+
+        // 给元素添加事件由两种方式：
+        //  传统方式
+        // 以on开头的事件 如onclick等 特点是唯一性 同一元素内同一事件不能共存 最后相同的会覆盖之前的处理函数
+        btns[0].onclick = function () {
+            alert('hi');
+        }
+        btns[0].onclick = function () {
+            alert('hello');
+            ///////// 解绑事件  /////////
+            btns[0].onclick = null;
+        }
+        // 方法监听注册方式 (推荐)
+        // addEventListener(type,listener[,useCapture]) 这是一个方法 特点 同一元素内同一事件可以注册多个监听器(function)
+        // type 字符事件类型 如 click 、mouseover、mouseout等 
+        // listener  事件处理函数 也叫监听器
+        // useCapture 可选参数 布尔值 默认是false
+        btns[1].addEventListener('click', function () { //注册鼠标点击事件 事件类型必须是字符串带引号
+            alert('弹出第一次');
+        })
+        btns[1].addEventListener('click', fn)  // 如果想要移除事件 需要独立写事件处理函数
+        function fn() {
+            alert('弹出第二二二次');
+            //删除事件(解绑事件)
+            btns[1].removeEventListener('click', fn); //函数不要加小括号
+        }
+
+
+    </script>
+</body>
+
+</html>

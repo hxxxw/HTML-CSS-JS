@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            border: 10px solid red;
+            padding: 10px;
+            overflow: auto;
+            /* 自动显示滚动条 */
+
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+    </div>
+    <script>
+        var div = document.querySelector('div');
+        // scrollWidth 返回实际内容的宽度 不包含边框的 但包含padding 
+        console.log(div.clientWidth);
+        console.log(div.scrollWidth);
+        // scrollHeight 返回实际内容的高度 不包含边框的 但包含padding 
+        console.log(div.clientHeight);
+        console.log(div.scrollHeight);
+
+
+        // scroll是滚动事件
+        div.addEventListener('scroll', function () {
+            //scrolltop  返回 被卷去 的上侧距离 不带单位
+            console.log(div.scrollTop);
+            //scrollLeft 返回 被卷去 的左侧元素 不带单位
+            console.log(div.scrollLeft);
+        })
+
+
+    </script>
+</body>
+
+</html>

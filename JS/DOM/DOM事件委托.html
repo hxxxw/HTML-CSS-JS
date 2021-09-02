@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 事件委托原理：不用给每个子节点设置事件监听器 而是事件监听器设置在其父节点上，利用冒泡原理影响设置每个子节点 -->
+</head>
+
+<body>
+    <ul>
+        <il>知否知否！？</il>
+        <il>知否知否！？</il>
+        <il>知否知否！？</il>
+        <il>知否知否！？</il>
+        <il>知否知否！？</il>
+        <il>知否知否！？</il>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul');
+        // 给父节点添加监听器 利用事件冒泡影响每个子节点
+        ul.addEventListener('click', function (e) {
+            // alert('每个li都能弹窗');
+            // this.children[1].style.backgroundColor = 'none';
+            // console.log(this.children);
+            // console.log(this.children.length);
+            for (var i = 0; i < this.children.length; i++) {
+                this.children[i].style.backgroundColor = '#fff';
+            }
+            e.target.style.backgroundColor = 'pink';
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串位置对象</title>
+    <script>
+        //先查找第一个o的位置 只要indexOf()返回的不是-1 就继续往后查找
+        var str = 'apbcpoepfpoppxyopozopp';
+        var index = str.indexOf('o'); //首次出现的位置
+        var num = 0; //计数
+        while (index != -1) {
+            console.log(index);
+            index = str.indexOf('o', index + 1);
+            num++;
+        }
+        console.log('o一共出现了' + num + '次');
+
+        // 求 str 字符串变量中 出现次数最多的字符 并统计次数
+        // 解 利用 charAt() 遍历这字符串 把得到的每个字符放在对象中 
+        //  如果对象没有改属性 就为1  有改属性就+1 最后遍历对象得到最大值和该字符
+        var storage = {};
+        for (var i = 0; i < str.length; i++) {
+            var chars = str.charAt(i);
+            if (storage[chars]) {
+                storage[chars]++;
+            } else {
+                storage[chars] = 1;
+                //如果这个字符第一次出现 就创建这个对象中的属性 并赋值为1
+            }
+        }
+        var max = 0;
+        var ch = '';
+        for (var k in storage) {   //开始遍历对象得到最大值
+            //k得到的是属性名
+            //storage[k] 得到是属性值
+            if (storage[k] > max) {
+                max = storage[k];
+                ch = k;
+            }
+        }
+        console.log('在字符串中出现最多的是' + ch + '出现了' + max + '次');
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

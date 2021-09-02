@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            margin: 100px auto;
+            border-collapse: collapse;
+        }
+
+        thead tr {
+            background-color: steelblue;
+        }
+
+        th {
+            border: 1px solid #999;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" name="" id="j_cbAll">全选</th>
+                <th>商品</th>
+                <th>价钱</th>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+            <tr>
+                <th><input type="checkbox" name="" id=""></th>
+                <th>iPhone8</th>
+                <th>8000</th>
+            </tr>
+            <tr>
+                <th><input type="checkbox" name="" id=""></th>
+                <th>iPid Pro</th>
+                <th>6000</th>
+            </tr>
+            <tr>
+                <th><input type="checkbox" name="" id=""></th>
+                <th>ipad Air</th>
+                <th>1200</th>
+            </tr>
+            <tr>
+                <th><input type="checkbox" name="" id=""></th>
+                <th>iPhone6</th>
+                <th>3000</th>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // 全选和取消全选做法
+        var j_cbAll = document.getElementById('j_cbAll');
+        var j_tbs = document.querySelector('#j_tb').querySelectorAll('input');
+        j_cbAll.onclick = function () {
+            for (var i = 0; i < j_tbs.length; i++) {
+                j_tbs[i].checked = this.checked;
+                // 设置点击事件 让tb下的每个复选框 跟随 tr的复选框改变
+            }
+        }
+        //  当tb的全部复选框都选中时 更改tr的复选框 为全选
+        // 给每个tb的复选框绑定点击事件，每次点击都 循环判断每个复选框是否选中
+        for (var i = 0; i < j_tbs.length; i++) {
+            j_tbs[i].onclick = function () {
+                var flag = true; // 用来控制是否全选
+                for (var i = 0; i < j_tbs.length; i++) {
+                    if (j_tbs[i].checked == false) {
+                        //只要有一个复选框没选中 就让flag为false
+                        flag = false;
+                        break;
+                    }
+                }
+                j_cbAll.checked = flag;
+            }
+        }
+    </script>
+</body>
+
+</html>

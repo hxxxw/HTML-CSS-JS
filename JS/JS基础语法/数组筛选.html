@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>筛选数组and数组结构赋值</title>
+    <script>
+        // 要将工资小于2000的删除,保留剩下数组
+        var arr1 = [1500, 1641, 8987, 2100];
+        var newarr = [];
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr1[i] < 2000) {
+                // newarr[newarr.length] = arr1[i];  老方法 
+                newarr.push(arr1[i]);
+            }
+        }
+        console.log(newarr);
+
+        var arr2 = ['a', 'a', 'z', 's', 's', 'x', 'c', 'c', 'x', 'b'];
+
+        function unique(arr) {   //数组去掉重复项
+            var newarr2 = [];
+            for (var i = 0; i < arr.length; i++) {
+                // 利用indexOf()遇到没有见过的元素会返回 -1 的特性
+                if (newarr2.indexOf(arr[i]) == -1) {
+                    newarr2.push(arr[i]);
+                }
+            }
+            console.log(newarr2);
+        }
+        function find(arr, key) {   //查找数组中元素出现的位置
+            var index = arr.indexOf(key);
+            while (index != -1) {
+                console.log(index);
+                index = arr.indexOf(key, index + 1);
+            }
+        }
+        unique(arr2);
+        find(arr2, 'x');
+
+        //2、数组解构赋值 ES6
+        let arr = [1, 3, 5];
+        /*
+        在ES6之前 数组给变量赋值
+        const a = arr[0];
+        const b = arr[1];
+        const c = arr[2];
+        */
+        let [a, b, c] = arr;  // 会遍历数组依次赋值给变量
+        // 2、1 解构赋值中 等号左边格式必须和右边格式的格式一样 才能完全结构
+        let [u, f, [g, r]] = [1, 5, [7, 8]];
+        // 2、2 解构赋值中 两边个数可以不相等 依序号对应赋值。如果右边少于左边不够赋值 可设置默认值
+        let [q = 9999, w = 515, e = 3215] = [1];  //默认值会被覆盖
+
+        console.log(a + "/" + b + "/" + c);
+        //ES6 扩展运算符 ...
+        // 在数组解构中, 可以用扩展运算符(只能放在最后一个变量前面)打包成数组
+        let [v, ...ss] = [1, 2, 3, 4, 5, 6, 7, 8];
+        console.log(v);
+        console.log(ss);
+        console.log(ss[0]);
+        // 当扩展运算符 在等号右边，为将数组中的元素解开
+        let arrA = [1, 2, 3, 4];
+        let arrB = [2, 3, 4, 5];
+        let arrAB = [...arrA, ...arrB];
+        console.log(arrAB);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

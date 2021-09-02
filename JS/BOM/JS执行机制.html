@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // JS一大特点就是单线程，同一个时间只能做一件事 
+        // 单线程意味着，所有任务都需要排队。如果JS执行时间过长，会导致页面的渲染不连贯
+        // 为了解决这个问题，H5提出了Web Worker标准 允许JS创建多个线程 有了同步和异步的概念
+        // 同步：前一个任务结束后才会执行下一个任务
+        // 异步：同时进行多个任务
+        // console.log(1);
+        // setTimeout(function () {
+        //     console.log(3);
+        // }, 1000);
+        // console.log(2);
+        console.log(1);
+        setTimeout(function () {
+            console.log(3);
+        }, 0);
+        console.log(2);
+        ///////////////// JS执行机制/////////////////
+        // 将所有任务分成了同步任务和异步任务
+        // 同步任务都放在主线程上，形成了一个执行栈
+        // 异步任务放在任务队列(消息队列)
+        // JS异步任务通过回调函数实现的。以下类型的回调函数 都会添加到任务队列中
+        // 异步任务有3种类型：1、普通事件 click、resize等2、资源加载 load、error等3、定时器setTimeout、setInterval等
+
+        // 1、先执行执行栈中的同步任务2、当有异步任务(回调函数)时，提交给异步进程处理，将异步任务(回调函数)放入任务队列
+        // 3、一旦执行栈中的所有同步任务执行完毕，系统会按次序读取任务队列中的异步任务 被读取的异步任务进入执行栈，开始执行
+        //主线程不断获取任、执行任务，再获取任务、执行任务，所有这种机制被称为事件循环(event loop)
+
+        // 上面代码的执行顺序
+        // 同步队列 console.log(1);>> setTimeout(fn, 0); >> console.log(2);
+        // 异步任务 function () { console.log(3); }
+    </script>
+</body>
+
+</html>

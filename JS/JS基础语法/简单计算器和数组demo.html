@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面弹窗计算器</title>
+    <script>
+        var choose = prompt('欢迎使用简易计算器：\n1.加法运算\n2.减法运算\n3.乘法运算\n4.除法运算\n5.实现反转任意数组（console）\n6.对无序数组的排序\n7.退出\n请输入你的选项');
+        var num1 = 0; num2 = 0;
+        switch (choose) {
+            case '1':
+                num1 = prompt('请输入第一个值');
+                num2 = prompt('请输入第二个值');
+                alert(parseInt(num1) + parseInt(num2));
+                break;
+            case '2':
+                num1 = prompt('请输入第一个值');
+                num2 = prompt('请输入第二个值');
+                alert(parseInt(num1) - parseInt(num2));
+                break;
+            case '3':
+                num1 = prompt('请输入第一个值');
+                num2 = prompt('请输入第二个值');
+                alert(parseInt(num1) * parseInt(num2));
+                break;
+            case '4':
+                num1 = prompt('请输入第一个值');
+                num2 = prompt('请输入第二个值');
+                alert(parseInt(num1) / parseInt(num2));
+                break;
+            case '5':
+                five();
+                break;
+            case '6':
+                six();
+                break;
+
+        }
+        function five() {
+            var arr1 = [1, 2, 4, 6, 7, 8, 9, 10, 101, 333];
+            for (var i = 0, j = arr1.length - 1; i <= arr1.length / 2; i++, j--) {
+                var temp = 0;
+                temp = arr1[i];
+                arr1[i] = arr1[j];
+                arr1[j] = temp;
+            }
+            console.log(arr1);
+        }
+        function six() {
+            var arr2 = [2, 63, 12, 5, 12, 7, 34, 885, 1];
+            var temp = 0;
+            for (var j = 0; j <= arr2.length - 1; j++) {
+                for (var i = 0; i <= arr2.length - j; i++) {
+                    if (arr2[i] > arr2[i + 1]) {
+                        temp = arr2[i];
+                        arr2[i] = arr2[i + 1];
+                        arr2[i + 1] = temp;
+                    }
+                }
+            }
+            console.log(arr2);
+        }
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

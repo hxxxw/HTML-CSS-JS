@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('../../fonts/icomoon.eot?pfb92j');
+            src: url('../../fonts/icomoon.eot?pfb92j#iefix') format('embedded-opentype'),
+                url('../../fonts/icomoon.ttf?pfb92j') format('truetype'),
+                url('../../fonts/icomoon.woff?pfb92j') format('woff'),
+                url('../../fonts/icomoon.svg?pfb92j#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .w {
+            position: relative;
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+
+        }
+
+        .w input {
+            margin-top: 20px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            outline: none;
+            width: 300px;
+        }
+
+        label {
+            position: absolute;
+            top: 100px;
+            right: 50px;
+            font-family: 'icomoon';
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <h3>登陆</h3>
+        <input type="text" placeholder="请输入用户名"><br>
+        <label for=""></label><input type="password" name="" id="psd" placeholder="请输入密码">
+    </div>
+    <script>
+        var padhidden = document.getElementById('psd');
+        var eye = document.querySelector('label');
+        var flag = 0;  // 通过flag 变换显示和隐藏
+        eye.onclick = function () {
+            if (flag == 0) {
+                padhidden.type = 'text';
+                this.innerHTML = '';
+                flag = 1;
+            } else {
+                padhidden.type = 'password';
+                this.innerHTML = '';
+                flag = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

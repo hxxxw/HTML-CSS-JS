@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for循环练习</title>
+    <script>
+        // 1、求1 - 100之间所有数的平均值
+        var sun = 0;
+        var avg = 0;
+        for (var a = 1; a <= 100; a++) {
+            sun = sun + a;
+        }
+        avg = sun / 100;
+        console.log(avg);
+        // 2、求1-100之间所有偶数和奇数的和
+        var odd = 0, even = 0;
+        for (var b = 1; b <= 100; b += 2) {
+            odd = odd + b;
+        }
+        console.log('奇数和为:' + odd);
+        for (b = 0; b <= 100; b += 2) {
+            even = even + b;
+        }
+        console.log('偶数和为：' + even);
+        // 3、求1-100之间的所有能被3整除的和
+        var result = 0;
+        for (var c = 1; c <= 100; c++) {
+            if (c % 3 == 0) {
+                result = c + result;
+            }
+        }
+        console.log('能被3整除之和：' + result);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

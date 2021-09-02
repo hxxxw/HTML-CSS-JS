@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新浪下拉菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            outline: none;
+            text-decoration: none;
+            color: #000;
+            font-size: 18px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .nav {
+            width: 1000px;
+            margin: 10px auto;
+        }
+
+        .nav>ul>li>ul {
+            display: none;
+        }
+
+        .nav>ul>li {
+            float: left;
+            margin: 0 20px;
+            width: 80px;
+            height: 23px;
+            text-align: center;
+        }
+
+        .nav>ul>li>ul>li {
+            width: 80px;
+            height: 23px;
+            border-bottom: 2px solid rgb(213, 240, 64);
+            text-align: center;
+        }
+
+        .nav>ul>li>ul>li:hover {
+            background-color: sandybrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="">个人中心</a>
+                <ul>
+                    <li>账户设置</li>
+                    <li>隐私</li>
+                    <li>退出登录</li>
+                </ul>
+            </li>
+            <li><a href="">网站导航</a>
+                <ul>
+                    <li>购物界面</li>
+                    <li>订单界面</li>
+                    <li>物流查询</li>
+                </ul>
+            </li>
+            <li><a href="">管理中心</a>
+                <ul>
+                    <li>订单管理</li>
+                    <li>账户管理</li>
+                    <li>界面管理</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var lis = document.querySelectorAll('.nav>ul>li');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function () {
+                this.children[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function () {  // onmouseover 当鼠标离开元素触发
+                this.children[1].style.display = 'none';
+            }
+        }
+        console.log(lis
+        );
+    </script>
+</body>
+
+</html>

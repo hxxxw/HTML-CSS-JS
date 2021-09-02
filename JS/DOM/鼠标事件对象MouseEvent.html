@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+        }
+
+        body {
+            /* 隐藏光标 */
+            cursor: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>这是一段不能复制的文字</div>
+    <img src="../../images/angel.gif" alt="">
+    <script>
+        // 文档禁止复制
+        var div = document.querySelector('div');
+        div.addEventListener('contextmenu', function (e) {
+            e.preventDefault();  //contextmenu 鼠标右击菜单 preventDefault取消默认效果
+        })
+        div.addEventListener('selectstart', function (e) {
+            e.preventDefault();  //selectstart 鼠标禁止选中
+        })
+
+        // 鼠标事件对象 MouseEvent
+        document.addEventListener('click', function (e) {
+            //1、page 鼠标在整个文档页面的X和Y的坐标  重点
+            console.log(e.pageX);
+            console.log(e.pageY);
+        })
+
+        // 隐藏鼠标 替换成图片
+        var pic = document.querySelector('img');
+        document.addEventListener('mousemove', function (e) {
+            // mousemove 鼠标移动触发
+            var x = e.pageX;
+            var y = e.pageY;
+            console.log('X的坐标是' + x, 'Y的坐标是' + y);
+            // -40是为了让鼠标在图片中间  主要要拼接px
+            pic.style.left = x - 40 + 'px';
+            pic.style.top = y - 40 + 'px';
+        })
+    </script>
+</body>
+
+</html>

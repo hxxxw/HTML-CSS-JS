@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clearfix:after {
+            /* 清除浮动 */
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            /*IE6、7专有*/
+            *zoom: 1;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .tab {
+            width: 1000px;
+            margin: 20px auto;
+        }
+
+        .tab_head {
+            border: 1px solid #ccc;
+            border-bottom: 1px solid red;
+            background-color: #eef1ee;
+        }
+
+        .tab_head ul li {
+            float: left;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .current {
+            background-color: red;
+            color: #fff;
+        }
+
+        .tab_con>div {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_head">
+            <ul class="clearfix">
+                <li class="current">商品介绍</li>
+                <li>规格和包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">商品介绍模块</div>
+            <div class="item">规格和包装模块</div>
+            <div class="item">售后保障模块</div>
+            <div class="item">商品评价模块</div>
+            <div class="item">手机社区模块</div>
+        </div>
+    </div>
+    <script>
+
+        var lis = document.querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('data-key', i);   //给每个li 添加自定义属性 设定编号
+            lis[i].onclick = function () {  //鼠标点击li 变色 其他li不变
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';   //取消所有li的样式
+                    items[i].style.display = 'none';// 隐藏所有div模块
+                }
+                this.className = 'current';   // 让指定的li设置样式
+                var key = this.getAttribute('data-key'); // 获取当前点击的key编号
+                items[key].style.display = 'block';  //让对应的div模块显示出来
+            }
+        }
+    </script>
+</body>
+
+</html>

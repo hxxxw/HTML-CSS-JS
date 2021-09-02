@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+
+        .blueviolet {
+            background-color: blueviolet;
+
+        }
+
+        .crimson {
+            background-color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one two">
+
+    </div>
+    <script>
+        // classList 返回元素的类名 HTML5新增的属性
+        var div = document.querySelector('div');
+        console.log(div.classList); //返回伪数组 包含当前元素所有的class
+        console.log(div.classList[0]); //返回类名字
+        console.log(div.classList[1]);
+        console.log(div.classList.length); //返回类个数
+
+        // 添加class
+        div.classList.add('crimson');
+        console.log(div.classList);
+        // 删除class
+        div.classList.remove('crimson');
+        console.log(div.classList);
+        // 切换class 有就删 无就加
+        div.addEventListener('click', function () {
+            div.classList.toggle('blueviolet');
+        })
+    </script>
+</body>
+
+</html>

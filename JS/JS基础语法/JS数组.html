@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+    <script>
+        // 1、用new 创建数组
+        var arr = new Array();  // 创建了空的数组
+        // 2、利用数组字面量创建数组
+        var arr = [1, '下下', false, 4]; // 数组类型没有限制
+
+        console.log(arr); // 会返回数组内全部值及长度
+        console.log(arr[0]); // 数组下标从0开始
+        console.log(arr.length);  // 返回数组的长度
+        arr.length = 5; // 通过修改数组的长度来 扩容数组空间
+        arr[4] = 2323; // 通过下标 在末尾追加数组元素
+        // arr = 111; 不要给数组名 直接赋值, 会转为普通数值类型,数组内容会消失
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

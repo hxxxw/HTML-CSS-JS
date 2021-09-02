@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: blue;
+        }
+    </style>
+    <script>
+        // window.load 是窗口界面加载事件，当文档内容完全加载完成才会触发该事件(包括图像、脚本文件、CSS文件、视频等) 
+        // DOMContentLoaded 事件，仅当DOM加载完成就会触发 如果页面图片视频较多 load的触发速度比DOMContentLoaded慢很多
+        // 有了load和DOMContentLoaded事件 script就不用写在元素后面了 
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                alert('按钮已点击');
+            })
+        })
+        document.addEventListener('DOMContentLoaded', function () {
+            alert('DOMContentLoaded事件效果');
+        })
+
+        //响应式布局 测试
+        window.addEventListener('load', function () {
+            var divbox = document.querySelector('div');
+            //resize 只要窗口大小变化了 就会触发事件
+            window.addEventListener('resize', function () {
+                console.log('现在宽度大小' + window.innerWidth);
+                // window.innerWidth 当前窗体的大小 单位 px
+                if (window.innerWidth > 800) {
+                    divbox.style.display = 'block';
+                } else {
+                    divbox.style.display = 'none';
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <button>点击</button>
+</body>
+
+</html>

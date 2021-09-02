@@ -1,0 +1,30 @@
+html {
+  font-size: 16px;
+}
+body {
+  font-size: 16px;
+}
+div {
+  font-size: 16px;
+}
+.father {
+  width: 200px;
+  height: 200px;
+  background-color: #7cc27c;
+}
+.father .son {
+  width: 100px;
+  height: 100px;
+  background-color: #f6b5c0;
+}
+.father .son:hover {
+  color: #7cc27c;
+}
+.father .son::before {
+  content: '';
+}
+.operation {
+  width: 1.6rem;
+  height: 300px;
+  border: 8px solid red;
+}

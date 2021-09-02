@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // js中的对象分三种 自定义对象、内置对象、浏览器对象
+        // 内置对象是js自带的一些对象，这些对开发者使用 常见为 math数字对象、data日期对象、array数组对象、string字符串对象
+        // 以下都为自定义对象
+        // 对象是一组无序的相关属性和方法的集合，所有的事务都是对象，例如字符串、数值、数组、函数等  类似于c语言的结构体
+        // 对象由 属性 和 方法 组成的
+
+        // 创建对象的三种方式
+        // 1、用 字面量 创建对象 属性名: 值 方法为在后面写个匿名函数
+        var dog = {
+            name: '可可',
+            type: '阿拉斯加犬',
+            age: 5,
+            color: '棕红色',
+            bark: function () {
+                console.log('汪汪汪');
+            },
+            showFilm: function () {
+                console.log("表演电影");
+            }
+        }
+        // 2、使用new Object 创建对象
+        var personal = new Object();
+        personal.name = '鸣人';
+        personal.sex = '男';
+        personal.age = 19;
+        personal.skill = function () {
+            console.log('分身术');
+        }
+        // 3、用构造函数实现对象 利用函数封装对象
+        // function 构造函数名() {  构造函数首字母要大写
+        //     this.属性 = 值;
+        //     this.方法 = function () { }
+        // }
+        // new 构造函数名字();
+        function Hero(name, type, blood, attack, Uskill) {
+            this.name = name;
+            this.type = type;
+            this.blood = blood;
+            this.attack = attack;
+            this.skill = function (Uskill) {
+                console.log(Uskill);
+            }
+        }
+        var striker = new Hero('后羿', '射手型', 1000, '远程');
+        var tanks = new Hero('廉颇', '坦克型', 5000, '近战');
+        // 如果要使用对象的内的属性
+        // 对象名字.属性名 
+        console.log(dog.name);
+        // 对象名['属性名']
+        console.log(dog['age']);
+
+        //调用对象中的方法
+        dog.bark();
+        personal.skill();
+        striker.skill('金乌落日');
+        tanks.skill('无尽怒火');
+        // for...in 遍历对象
+        // for (变量 in 对象) {
+        // }
+        for (var k in striker) {
+            console.log(k);  //输出 变量中的属性名
+            console.log(striker[k]); // 输出变量中的属性值
+        }
+
+        var computer = {
+            color: 'black',
+            weight: '1500g',
+            brand: '华硕',
+            sing: function () {
+                console.log("muisc");
+            },
+            look: function () {
+                console.log('fiml');
+            }
+        }
+        var bottom = new Object();
+        bottom.height = '50px';
+        bottom.width = '80px';
+        bottom.clock = function () {
+            console.log('点击');
+        }
+        //ES6语法
+        class Car {
+            constructor(weight, color, brand) {
+                this.weight = weight;
+                this.color = color;
+                this.brand = brand;
+            }
+            zairen() {
+                console.log('我可以载人');
+            }
+        }
+        var baoma = new Car(5000, 'red', 'baoma');
+        baoma.zairen();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

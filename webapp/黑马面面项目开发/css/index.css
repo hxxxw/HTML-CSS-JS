@@ -1,0 +1,220 @@
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 37.5px !important;
+  }
+}
+body {
+  max-width: 750px;
+  min-width: 320px;
+  margin: 0 auto;
+}
+header {
+  height: 2.133333rem;
+  border-bottom: 0.026667rem solid #EAEAEA;
+  text-align: center;
+  font-size: 0.933333rem;
+  font-family: Microsoft YaHei, Microsoft YaHei-Regular;
+  font-weight: 400;
+  color: #1c1c1c;
+  line-height: 2.133333rem;
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.066667rem 0 0 1.066667rem;
+}
+.nav a {
+  flex: 33.3%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav a img {
+  width: 3.706667rem;
+  height: 3.706667rem;
+  text-align: center;
+}
+.nav a span {
+  font-size: 0.666667rem;
+  line-height: 0.72rem;
+  color: #707070;
+}
+.nav a:nth-child(n+4) {
+  margin-top: 0.6rem;
+}
+.advertising {
+  text-align: center;
+  margin-top: 0.6rem;
+  height: 4.8rem;
+  border-bottom: 0.266667rem solid #f2f4f7;
+}
+.advertising a img {
+  margin: 0 0.266667rem 0.48rem 0;
+  width: 90%;
+}
+.content {
+  padding: 1.066667rem 0.586667rem;
+  background-color: #fff;
+  border-bottom: 0.266667rem solid #f2f4f7;
+}
+.content .con-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.013333rem;
+}
+.content .con-hd .icon1 {
+  position: relative;
+  padding-left: 1.333333rem;
+  font-size: 0.746667rem;
+  color: #333;
+}
+.content .con-hd .icon1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.013333rem;
+  height: 1.013333rem;
+  background: url(../icons/i2.png);
+  background-size: 1.013333rem 1.013333rem;
+}
+.content .con-hd .icon2 {
+  position: relative;
+  padding-left: 1.333333rem;
+  font-size: 0.746667rem;
+  color: #333;
+}
+.content .con-hd .icon2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.013333rem;
+  height: 1.013333rem;
+  background: url(../icons/i1.png);
+  background-size: 1.013333rem 1.013333rem;
+}
+.content .con-hd a {
+  font-size: 0.586667rem;
+  color: #999;
+}
+.con-bd {
+  margin-top: 20px;
+  position: relative;
+}
+.con-bd .swiper-container {
+  width: 14.4rem;
+  height: 100%;
+}
+.con-bd .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  transition: 300ms;
+  transform: scale(0.8);
+  opacity: 0.4;
+}
+.con-bd .swiper-slide a {
+  width: 9.013333rem;
+  height: 10.026667rem;
+}
+.con-bd .swiper-slide a img {
+  width: 100%;
+  height: 100%;
+}
+.con-bd .swiper-slide p {
+  font-size: 0.666667rem;
+  color: #333;
+  width: 9.013333rem;
+  margin-top: 0.64rem;
+}
+.con-bd .swiper-slide-active,
+.con-bd .swiper-slide-duplicate-active {
+  transform: scale(1);
+  z-index: 10;
+  opacity: 1;
+}
+.con-bd .swiper-button-next,
+.con-bd .swiper-button-prev {
+  color: #333;
+}
+.study {
+  padding: 0.133333rem;
+  margin: 0.533333rem 0;
+  margin-bottom: 2rem;
+}
+.study .swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.study .swiper-slide {
+  width: 7.733333rem;
+  height: 9.066667rem;
+  border-radius: 0.266667rem;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  background: #fff;
+}
+.study a {
+  width: 7.253333rem;
+  height: 4.56rem;
+}
+.study a img {
+  width: 100%;
+}
+.study h5 {
+  font-size: 0.746667rem;
+  font-weight: 400;
+  margin: 0.533333rem 0;
+  text-align: left;
+  padding-left: 0.266667rem;
+}
+.study span {
+  padding-left: 0.266667rem;
+  font-size: 0.693333rem;
+}
+.study .number {
+  color: #FF4400;
+}
+.footer {
+  border-top: 0.08rem solid #ccc;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.933333rem;
+  z-index: 99999;
+  display: flex;
+}
+.footer .item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer .item img {
+  width: 1.066667rem;
+  height: 1.066667rem;
+}
+.footer .item span {
+  font-size: 0.586667rem;
+  color: #666;
+}

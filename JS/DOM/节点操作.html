@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点操作</title>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <ul>
+        <li>我是ul里面的li1</li>
+        <li>我是ul里面的li2</li>
+        <li>我是ul里面的li3</li>
+    </ul>
+    <ol>
+        <li>我是ol里面的li</li>
+        <li>我是ol里面的li</li>
+        <li>我是ol里面的li</li>
+    </ol>
+    <script>
+        //DOM提供的方法获取元素
+        //document.getElementById();
+        //document.getElementsByTagName();
+        //document.querySelector();
+
+
+        //利用节点层次关系获取元素
+        //网页中所有的内容都是节点（标签、属性、文本、注释等）,在DOM中 节点用node表示
+        //利用父子兄节点获取元素 逻辑性更强 但是兼容性稍差
+        //节点至少有 nodeType(节点类型)、nodeName(节点名称)、nodeValue(节点值)
+        // 元素节点 nodeType 为1、属性节点 nodeType 为2  文本节点 nodeType为3 主要操作元素节点
+
+        //父节点 .parentNode
+        var son = document.querySelector('.son');
+        console.log(son.parentNode); // 得到里son元素最近的父级节点
+        //子节点 .children
+        var ul = document.querySelector('ul');
+        console.log(ul.childNodes);   // 返回9个节点   得到ul下的所有子节点 包括文本 元素
+        console.log(ul.children);   // 返回3个节点  是个伪数组 只会得到子元素节点 
+        //兄弟节点  
+        console.log(ul.nextElementSibling);   // 得到下一个兄弟元素节点
+        console.log(ul.previousElementSibling);  //得到上一个元素节点 
+
+        //动态创建元素节点  
+        // var li = document.createElement('li');  //创建元素
+        // ul.appendChild(li);   // 添加在ul末尾
+        ul.appendChild(document.createElement('li')); // 在ul的末尾添加一个li元素
+        //.insertBefore(插入元素, 指定元素)  在指定元素的前面插入
+        ul.insertBefore(document.createElement('li'), ul.children[0]);
+
+        //删除元素节点
+        ul.removeChild(ul.children[0]);   //删除指定元素  返回删除的节点
+
+        //复制节点
+        var li2 = ul.children[0].cloneNode();  // 如果cloneNode()内不写参数 为只复制节点本身 不带内容
+        var li3 = ul.children[0].cloneNode(true);  // 用true 能完全复制节点及内容
+        ul.appendChild(li2);   // 添加进ul最后一个子元素
+        ul.appendChild(li3);   // 添加进ul最后一个子元素
+
+        //获取 第一个子元素 
+        console.log(ul.children[0]);
+        // 获取 最后一个元素
+        console.log(ul.children[ul.children.length - 1]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+// 将设置好的lessAndRemCommon.less文件导入
+@import "lessAndRemCommon.less";
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-width: 320px;
+    margin: 0 auto;
+    width: 15rem;
+    //因为将屏幕分成15分 所以宽度为15rem
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+}
+.search-content{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15rem;
+    height: (88rem / 50);
+    background-color: #FFC001;
+    .classify{
+        margin: (11rem/50) (25rem/50) (7rem/50) (24rem/50);
+        width:(44rem / 50);
+        height: (70rem / 50);
+        background: url(../img/classify.png) no-repeat;
+        background-size: (44rem / 50) auto;
+        background-position: 0 0;
+    }
+    .login{
+        width:(75rem / 50);
+        height: (70rem / 50);
+        line-height: (70rem / 50);
+        margin: (5rem /50);
+        text-align: center;
+        font-size: (25rem/50);
+        text-decoration: none;
+        color: #fff;
+    }
+    .search{
+        flex: 1;
+        height: (68rem / 50);
+        border-radius: (40rem/50);
+        margin-top: (10rem /50);
+        background-color:#fff1c9 ;
+        border: none;
+        padding-left: (15rem/50);
+        line-height: (68rem / 50);
+        color: #bbb;
+        font-size: (25rem/50);
+    }
+}
+.banner{
+    width: (750rem / 50);
+    height: (368rem /50 );
+    img{
+        widows: 100%;
+        height: 100%;
+    }
+}
+.advertising{
+    display: flex;
+    a{
+        flex: 1;
+        img{
+            width: 100%;
+        }
+        
+    }
+}
+.nav{
+    width: (750rem / 50);
+    a{
+        float: left;
+        width: (150rem/50);
+        height: (140rem/50);
+        text-decoration: none;
+        color: black;
+        text-align: center;
+    }
+    img{
+        display: block;
+        width: (82rem/50);
+        height: (82rem/50);
+        margin: (5rem/50) auto 0;
+    }
+    span{
+        display: block;
+        margin-top: (5rem/50);
+        font-size: (25rem/50);
+    }
+}
+
+

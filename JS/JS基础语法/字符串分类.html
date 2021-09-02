@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 随机输入一个字符串 把重复的整合到一起，结果是一个数组 比如abccha 变成［aa，b，cc，h］
+        var str = 'aapbcbpoepfpoccceppxyoozo';
+        var newarr = {};
+        for (var i = 0; i < str.length; i++) {
+            var chars = str.charAt(i);
+            if (newarr[chars] != null) {
+                newarr[chars] = chars + newarr[chars];
+            } else {
+                newarr[chars] = chars;
+            }
+        }
+        console.log(newarr);
+        var keys = Object.values(newarr);  //Object.keys :创建一个包含对象所有属性的数组
+        console.log(keys);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

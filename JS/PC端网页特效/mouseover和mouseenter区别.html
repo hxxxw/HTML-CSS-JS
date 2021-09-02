@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            margin: 10px auto;
+            height: 300px;
+            width: 300px;
+            background-color: blue;
+        }
+
+        .son {
+            width: 150px;
+            height: 150px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+
+        </div>
+    </div>
+    <script>
+        var father = document.querySelector('.father');
+        // father.addEventListener('mouseover', function () {
+        //     console.log('aaa');
+        //     mouseover 鼠标经过自身盒子触发 经过子盒子也会触发 这是因为在事件流冒泡多触发了
+        // })
+        father.addEventListener('mouseenter', function () {
+            console.log('aaa');
+            // mouseenter 鼠标经过自身盒子才会触发 mouseenter在事件流中不会冒泡
+            // 与mouseenter 相搭配的是 鼠标离开 mouseleave 同样不会冒泡
+        })
+    </script>
+</body>
+
+</html>

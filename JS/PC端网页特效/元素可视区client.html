@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            border: 10px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        // clientWidth 宽度 不包含边框的 但包含padding
+        console.log(div.clientWidth);
+        // clientHeight 高度 不包含边框的 但包含padding
+        console.log(div.clientHeight);
+    </script>
+</body>
+
+</html>

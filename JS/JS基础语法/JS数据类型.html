@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+    <script>
+        //JS 是一个动态语言 在赋值之前是不确定变量数据类型 二次赋值会改变其数据类型
+        /*js 数据类型分两类
+        1、简单数据类型
+            Number 数值型 包含 整形和浮点型
+                0XX 为8进制 0xXXXX为16进制 数字型最大值Number.MAX_VALUE 最小值Number.MIN_VALUE infinity 无穷大 -infinity 无穷小
+                inNaN(变量) 判断是否非数字 false为数字 true为非数字
+            String 字符串类型 就近匹配 外双内单 外单内双
+            Booan 布尔型 true 和 false 等价于 1 和 0
+            Undefined 只声明了变量 却没给值 变量 = Undefined
+            Null 空值
+
+            typeof 变量  能检测变量数据类型
+            数据类型转换
+            转换为字符串
+                tostring()  
+                String()    强制转换 
+                用加号拼接
+            转换为数值型
+                parseInt(string) 函数  将字符型转换为数值型
+                parseFloat(string) 函数 将字符型转换为浮点型
+                Number()  强制转换
+                - * /  隐式转换
+            转换为布尔型
+                Boolean()  将其他类型转换为布尔型 代表空、否定 会转换为false 如’‘、0、NaN、null、undefined
+        */
+        var x = 1; //这是数值型
+        var str = '这是\n"字符串"\n类型';
+        console.log(x);
+        console.log(typeof x);
+        console.log(str);
+        console.log(typeof str);
+        console.log(x + '长度为' + str.length); //字符串长度 包括空格  通过 + 进行拼接 数值相加 字符相连
+        console.log(false + 1); //Boolean 参与运算 当1/0
+        var age = prompt('请输入你的年龄');
+        alert('你的年龄为' + age);
+        // 转换为字符
+        var num = 10;
+        var strnum = num.toString();
+        console.log(String(num));
+        // 转换为数字型
+        var strrr = '123px';
+        console.log(parseInt(strrr));  //如果后面包含字母 会去掉
+        console.log(parseFloat(strrr));
+        console.log('12' - 0); //隐式转换
+        console.log(Boolean(strrr));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

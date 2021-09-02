@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画原理</title>
+    <style>
+        div {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 300px;
+            background-color: chocolate
+        }
+
+        span {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 150px;
+            height: 150px;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        function animate(obj, target, speed) { //传参内容为 对象 到达距离 步长速度
+            // 1、获取盒子在当前的位置
+            // 2、让盒子在当前位置上加移动距离 盒子需要添加定位 才能使用left、top 等。。。
+            // 3、利用定时器不断重复过程
+            // 4、加上定时器结束条件
+            clearInterval(obj.time); // 在函数执行前 先清除之前的定时器 防止多次触发 只保留一个定时器在运行
+            obj.time = setInterval(function () {
+                // 给obj加了个time 属性 可以给不同元素指定不同的定时器 
+                if (obj.offsetLeft >= target) {
+                    clearInterval(obj.time);
+                } else {
+                    obj.style.left = obj.offsetLeft + speed + 'px';
+                }
+            }, 100)
+        }
+        animate(div, 400, 50);
+        animate(span, 20, 10);
+    </script>
+</body>
+
+</html>

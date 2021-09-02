@@ -1,0 +1,47 @@
+// less是一门CSS扩展语言，也是CSS预处理器。在CSS语法的基础上加入了程序式语言的特性
+// 引入了变量 Mixin(混入) 运算 函数等功能 降低了css的维护成本
+// less变量
+    //变量名命名规范 @变量名:值;
+    @pink:rgb(246, 181, 192);
+    @green:rgb(124, 194, 124);
+    @font16:16px;
+    html{
+        font-size: @font16;
+    }
+    body{
+        font-size: @font16;
+    }
+    div{
+        font-size: @font16;
+    }
+// less编译
+    // 使用easy less 在写less时按保存 能同步生成.css文件
+// less嵌套
+    .father{
+        width: 200px;
+        height: 200px;
+        background-color: @green;
+        // 子元素直接写在父元素的里面
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: @pink;
+            // 伪类选择器要在前面加 &:
+            &:hover{
+                color:@green;
+            }
+            &::before{
+                content: '';
+            }
+        }
+    }
+// less运算
+    //能使用 + - * / 运算 运算符之间用空格隔开 如果俩数参与运算单位不同 ，取第一个或唯一个单位作为运算结果单位
+    @border1:2+2px;
+    .operation{
+        width:(80 / 50rem);
+        // width: 100px+50;
+        height: 50+50*5px;
+        border: @border1 * 2 solid red;
+
+    }

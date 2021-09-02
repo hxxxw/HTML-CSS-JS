@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=  ">
+    <title>Document</title>
+    <style>
+        .receive {
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="receive"></div>
+    <button>点击获取当前URL</button>
+    <div class="jump" style="cursor: pointer;">点击后5秒跳转页面</div>
+    <script>
+        // window对象提供了一个location属性用于获取或设置窗体的URL 并且可以用于解析URL
+        // 因为这个属性返回的是一个对象 所以称为location对象
+        // 一般URL的组成 protocol://host[:port]/path/[?query]#fragment
+        // protocol 通信协议 常用的http、ftp等 ?query 参数 多个参数用&分开  #fragment 跳转的链接 锚点
+
+        // location.href 获取或设置整个URL 
+        // location.search 返回参数 location.hash 返回跳转的链接 锚点
+        var btn = document.querySelector('button');
+        var jump = document.querySelector('.jump');
+        var receive = document.querySelector('.receive')
+        btn.addEventListener('click', function () {
+            alert(location.href);   //可以获取到URL值
+        })
+        // jump.addEventListener('click', function () {
+        //     setTimeout(function () {
+        //         location.href = 'http://www.baidu.com';//也可以修改URL值 修改后直接跳转
+        //     }, 5000)
+        // })
+        jump.addEventListener('click', function () {
+            var count = 5;
+            setInterval(function () {
+                if (count == 0) {
+                    location.href = 'http://www.baidu.com';
+                    // location.reload(); 相当于F5 刷新页面
+                } else {
+                    jump.innerHTML = '将在' + count + '秒后跳转';
+                    count--;
+                }
+            }, 1000)
+        })
+        //////////// 获取参数//////////
+        console.log(location.search);  //获取到‘页面之间参数传递.html’ 所提交的参数 ？user=111
+        // 利用 substr()去掉 ？
+        var params = location.search.substr(1); //字符串下标为零 substr('起始位置','截取多少') 第二参数不写 默认后面全部截取
+        // 利用 split 分割成数组
+        var arr = params.split('=');
+        console.log(arr);
+        receive.innerHTML = arr[1];  // 将传递过来的数组输出在屏幕上
+    </script>
+</body>
+
+</html>
