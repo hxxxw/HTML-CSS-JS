@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="result">
+    </div>
+    <script>
+        const result = document.querySelector('.result');
+        result.addEventListener('mousemove', function () {
+            const xhr = new XMLHttpRequest();
+            //post 设置请求行 
+            xhr.open('POST', 'http://127.0.0.1:800/server');
+            //post 设置请求体参数 参数非常随意 只要服务器有对应的解析方式 
+            xhr.send('a:100&b:200');
+            // xhr.send('351613');
+            // post 设置请求头 setRequestHeader('请求头名字','请求头值')
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('name', 'aaabbb');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        result.innerHTML = xhr.response;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

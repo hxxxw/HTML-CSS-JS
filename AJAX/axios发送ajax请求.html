@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+
+<body>
+    <button>GET</button>
+    <button>POST</button>
+    <button>AJAX</button>
+    <script>
+        const btns = document.querySelectorAll('button');
+        // 配置baseURL
+        axios.defaults.baseURL = 'http://127.0.0.1:800';
+
+        btns[0].onclick = function () {
+            // get 请求  axios.get(URL,config)
+            axios.get('/axios-server', {
+                //URL参数
+                params: {
+                    id: 100,
+                    vip: 77
+                },
+                //请求头信息
+                Headers: {
+                    name: 'asdasd',
+                    age: 20
+                }
+            }).then(value => {
+                //value 为 axios的响应体
+                console.log(value);
+                console.log(value.data.name);
+            });
+        }
+        btns[1].onclick = function () {
+            // axios.post(URL,data,config)
+            axios.post('/axios-server',
+                {//第二个参数 请求体内容
+                    username: 'admin',
+                    password: 'admin'
+                },
+                {
+                    //URL参数
+                    params: {
+                        id: 100,
+                        vip: 666
+                    },
+                    //请求头信息
+                    headers: {
+                        name: '1qqqqqq',
+                        age: 20
+                    }
+                });
+        }
+        btns[2].onclick = function () {
+            //通用方式发送AJAX请求
+            axios({
+                //请求方式
+                method: 'POST',
+                //URL
+                url: '/axios-server',
+                //URL参数
+                params: {
+                    id: 100,
+                    vip: 666
+                },
+                //请求头参数
+                headers: {
+                    a: 100,
+                    b: 200
+                },
+                data: {
+                    username: 'admin',
+                    password: 'admin'
+                }
+            }).then(aaa => {
+                console.log(aaa);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

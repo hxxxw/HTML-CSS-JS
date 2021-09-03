@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET</title>
+    <style>
+        #result {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #90b;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点击发送请求</button>
+    <div id="result"></div>
+    <script>
+        const btn = document.querySelector('button');
+        const result = document.querySelector('#result');
+        btn.addEventListener('click', (e) => {
+            // 1、创建对象 (XMLHttpRequest对象用于在后台与服务器交换数据)
+            const xhr = new XMLHttpRequest();
+            // 2、初始化 设置请求行方法和url
+            xhr.open('GET', 'http://127.0.0.1:800/server?a=100&b=101');
+            // 3、发送
+            xhr.send();
+            // 4、事件绑定
+            // readystate是xhr对象中的属性 表示状态 0(未初始化)1(open方法调用完毕)2(send方法调用完毕)3(服务器返回部分内容)4(内容返回完毕)
+            xhr.onreadystatechange = function () {
+                // 处理返回结果 在内容返回完全后
+                if (xhr.readyState === 4) {
+                    // 判断响应状态码 200 404 500 403 在200-299之间都算返回正常
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        // 开始处理 行 头 空行 体
+                        console.log(xhr.status);  // 响应状态码
+                        console.log(xhr.statusText);  //响应字符串
+                        console.log(xhr.getAllResponseHeaders()); //返回所有的响应头
+                        console.log(xhr.response);  // 响应体
+
+                        result.innerHTML = xhr.response;
+                    } else {
+
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
