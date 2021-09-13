@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6解构赋值</title>
+    <!-- 解构赋值是对赋值运算符的扩展。他是一种针对数组或者对象进行模式匹配，然后对其中的变量进行赋值。
+    在代码书写上简洁且易读，语义更加清晰明了；也方便了复杂对象中数据字段获取。 -->
+    <!-- 解构模型: 解构的源：解构的目标  将目标按序号遍历赋值给源 格式必须一样-->
+</head>
+
+<body>
+    <script>
+        /////  数组中的解构  /////
+        //  1、基本   
+        let [a, b, c] = [1, 2, 3];
+        console.log('a=' + a, 'b=' + b, 'c=' + c,);
+        // 2、可嵌套
+        let [d, [e]] = [4, [5]];
+        console.log('d=' + d, 'e=' + e);
+        // 3、可忽略/设默认值  默认值会被覆盖，被忽略的源会保持默认值 如未设置默认值返回undefined
+        let [h = 9999, i = 515, k = 3215] = [6, , 8];
+        console.log('h=' + h, 'i=' + i, 'k=' + k,);
+        // 4.1 扩展运算符 在数组解构中,可以用扩展运算符(只能放在最后一个变量前面)打包成数组
+        let [v, ...ss] = [1, 2, 3, 4, 5, 6, 7, 8];
+        console.log('v=' + v, 'ss=' + ss);
+        console.log(ss[0]);
+        // 4.2  当扩展运算符 在等号右边，为将数组中的元素解开
+        let arrA = [1, 2, 3, 4];
+        let arrB = [2, 3, 4, 5];
+        let arrAB = [...arrA, ...arrB];
+        console.log(arrAB);
+        // 5、数组解构字符串
+        let [aa, bb, cc, dd, ee] = 'hello';
+        console.log('aa=' + aa, 'bb=' + bb, 'cc=' + cc, 'dd=' + dd, 'ee=' + ee);
+        /////  对象中的解构  /////
+        // 1、基本  变量命名必须和被解构的对象的属性一致
+        let node = {
+            type: 'aaaa',
+            name: 'bbbb'
+        }
+        let type = '13216', name = 'cccc';  //默认值将被覆盖
+        ({ type, name } = node); //语法规定，代码块语句不允许出现在赋值语句左侧，添加小括号后可以将块语句转化为一个表达式，从而实现整个解构赋值过程
+        console.log(type);
+        console.log(name);
+        // 2、函数与解构 解构赋值表达式的值与表达式右侧的值相等，如此一来，在任何可以使用值的地方都可以使用解构赋值表达式
+        let node2 = {
+            type2: "Identifier",
+            name2: "foo"
+        }
+        let type2 = 'qq', name2 = 'pp';
+        function outputInfo(value) {
+            console.log(value === node2); // true
+        }
+        outputInfo({ type2, name2 } = node2);  //此处传入的参数等同于node，且变量type和name被重新赋值
+        console.log(type2); // "Identifier"
+        console.log(name2); // "foo"
+        // 3、为非同名局部变量赋值 
+        let node3 = {
+            type3: "Identifier",
+            name3: "foo"
+        };
+        let { type3: localType, name3: localName, age: localAge = '11岁' } = node3;
+        console.log(localType);
+        console.log(localName);
+        console.log(localAge);
+        // 4、嵌套对象解构
+        let node4 = {
+            type4: "Identifier",
+            name4: "foo",
+            loc: {
+                start: {
+                    line: 1,
+                    column: 1
+                },
+                end: {
+                    line: 1,
+                    column: 4
+                }
+            }
+        };
+        let { loc: { start } } = node4;
+        //在解构模式中使用了花括号，其含义为在找到node对象中的loc属性后，应当深入一层继续查找start属性。
+        //解构模式中所有冒号前的标识符都代表在对象中的检索位置，其右侧为被赋值的变量名；
+        console.log(start.line); // 1
+        console.log(start.column); // 1
+        let { type4, ...sss } = node4;  //使用...运算符以对象的形式打包剩下的内容
+        console.log(type4);
+        console.log(sss);
+        console.log(sss.loc.start.line);
+    </script>
+</body>
+
+</html>

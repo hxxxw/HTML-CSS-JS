@@ -1,0 +1,17 @@
+{
+  "name": "NODE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js回调函数.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.0.0-alpha.8",
+    "gulp": "^4.0.2",
+    "mongoose": "^6.0.5"
+  }
+}
