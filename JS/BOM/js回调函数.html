@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 回调函数是一段可执行的代码段，它作为一个参数传递给其他的代码，其作用是在需要的时候方便调用这段（回调函数）代码。 -->
+    <script>
+        function say(value) {
+            alert(value);
+        }
+        alert(say); //显示say方法本身
+        alert(say('hello')); //显示hello
+
+        function sum(num1, num2, callback) {
+            let num = num1 + num2;
+            callback(num);
+        }
+        //在sum函数执行后 得到想要的值 并去执行回调函数print
+        function print(value) {
+            console.log(value * value);
+        }
+        sum(3, 3, print);
+    </script>
+</body>
+
+</html>

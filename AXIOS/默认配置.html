@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <style>
+        .content {
+            margin: 10px auto;
+            width: 80%;
+        }
+
+        .content h1 {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        button {
+            width: 130px;
+            height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>默认配置</h1>
+        <div class="btns">
+            <button class="btn-get">发送GET请求</button>
+            <button class="btn-post">发送POST请求</button>
+        </div>
+    </div>
+    <script>
+        const btns = document.querySelectorAll('button');
+
+        // 默认配置 (axios.defaults )
+        axios.defaults.method = 'GET'; //设置默认的请求类型为GET
+        axios.defaults.baseURL = 'http://localhost:3000'; //设置基础URL 用于拼接
+        axios.defaults.timeout = 3000; //设置默认超时时间
+
+        btns[0].onclick = function () {
+            // 创建实例对象 (用于多个服务器接口)
+            const test = axios.create({
+                // 配置默认设置 
+                baseURL: 'http://localhost:3000',
+                timeout: 2000
+            });
+            // 这个test和axios对象的功能几乎一样
+            test({
+                url: "/posts"
+            }).then(res => {
+                console.log(res);
+            })
+        }
+    </script>
+</body>
+
+</html>

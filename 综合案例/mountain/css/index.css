@@ -1,0 +1,51 @@
+h1{
+    position: absolute;
+    top: 0%;   
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    letter-spacing: 8px;
+}
+h2{
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    /* transform: translateX(-50%); */
+    width: 40%;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .3);
+}
+.bg{
+    position: relative;
+    overflow: hidden;
+    background-image: url(../img/mountain\ range.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 200vh;
+    font-size: 6rem;
+    font-weight: 900;
+    padding-left: 10rem;
+    /* -webkit-background-clip 以文字为选中区域向外裁剪 */
+    -webkit-background-clip: text;
+    /* -webkit-text-fill-color 将文字透明镂空 */
+    -webkit-text-fill-color: transparent;
+}
+.bg::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -99;
+    /* background-image: inherit 继承父元素的background-image */
+    background-image: inherit;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+.bg span:nth-child(1){
+    margin-top: 15rem;
+}
+.bg span{
+    display: block;
+}

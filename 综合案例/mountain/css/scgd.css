@@ -1,0 +1,31 @@
+.shell{
+    height: 100vh;
+    /* 在X轴上溢出隐藏 */
+    overflow-x: hidden;
+    perspective: 3px;
+}
+.shell div{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+.img{
+    height: 100vh;
+    background-size: cover;
+    z-index: -1;
+    transform: translateZ(-1px) scale(1.6);
+}
+.text{
+    height: 45vh;
+    background-color: aliceblue;
+}
+.text h1{
+    color: #000;
+}
+.heading{
+    color: aliceblue;
+    transform:translateY(-30px) translateZ(-1px);
+}

@@ -27,7 +27,7 @@
         let Sending = false; //标识是否正在发送ajax请求
 
         send.addEventListener('click', function () {
-            if (Sending) x.abort();// 如果有请求正在发送，则取消该请求，往下走再创建一个新的请求
+            if (Sending) x.abort();// 如果有请求正在发送，则abort()方法会取消该请求，往下走再创建一个新的请求
             x = new XMLHttpRequest();
             Sending = true; // 正在发送
             x.open('GET', 'http://127.0.0.1:800/delay');

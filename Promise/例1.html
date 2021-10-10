@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>例一</title>
+    <style>
+        .content {
+            margin: 0 auto;
+            width: 80%;
+            height: 100%;
+        }
+
+        .top {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        button {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            background-color: cadetblue;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="top">
+            <h2>Promise例子一</h2>
+        </div>
+        <button>点击抽奖</button>
+    </div>
+    <script>
+        let btn = document.querySelector('button');
+        function rand(m, n) {
+            return Math.ceil(Math.random() * (n - m + 1)) + m - 1;
+        }
+        btn.addEventListener('click', () => {
+            // const timer = setTimeout(() => {
+            //     let n = rand(1, 1000);
+            //     if (n <= 30) {
+            //         alert("恭喜你中奖了");
+            //     } else {
+            //         alert("很遗憾，未中奖");
+            //     }
+            // }, 2000);
+
+            // Promise封装实现  默认格式 实例化 new Promise((resolve, reject) => {})
+            // resolve解决 函数类型数据 成功
+            // reject 拒绝 函数类型数据 失败
+            const p = new Promise((resolve, reject) => {
+                // 1、封装异步任务
+                const timer = setTimeout(() => {
+                    let n = rand(1, 100);
+                    if (n <= 30) {
+                        // 在异步任务成功时候调resolve 会将p状态改为 成功
+                        resolve(n);
+                    } else {
+                        // 在异步任务失败时候调reject  会将p状态改为 失败
+                        reject(n);
+                    }
+                    console.log(n);
+                }, 1000);
+                // then((状态成功时的操作),(状态失败时的操作))
+            }).then((value) => { alert("恭喜你中奖了,中奖号码为" + value) }, (reason) => { alert("很遗憾，未中奖。你的号码为" + reason) });
+
+        })
+    </script>
+</body>
+
+</html>

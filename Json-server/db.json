@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "标题",
+      "author": "作者"
+    },
+    {
+      "id": 3,
+      "title": "通过客户端post请求添加数据",
+      "author": "We"
+    },
+    {
+      "title": "通过客户端PUT请求修改数据",
+      "author": "Weeeeee",
+      "id": 4
+    },
+    {
+      "title": "通过客户端post请求添加数据",
+      "author": "We",
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "what": "一样的月光，怎么让我越看越心伤",
+      "postId": 2,
+      "id": 2
+    },
+    {
+      "body": "用post修改过",
+      "postId": 2,
+      "id": 3
+    },
+    {
+      "body": "用post修改过",
+      "postId": 2,
+      "id": 4
+    },
+    {
+      "body": "用post修改过",
+      "postId": 2,
+      "id": 5
+    },
+    {
+      "body": "用post修改过",
+      "postId": 2,
+      "id": 6
+    },
+    {
+      "body": "用post修改过",
+      "postId": 2,
+      "id": 7
+    },
+    {
+      "body": "用post修改过",
+      "postId": 2,
+      "id": 8
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

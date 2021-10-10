@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <style>
+        .content {
+            margin: 10px auto;
+            width: 80%;
+        }
+
+        .content h1 {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        button {
+            width: 130px;
+            height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>方法实现</h1>
+        <div class="btns">
+            <button class="btn-get">发送GET请求</button>
+            <button class="btn-post">发送POST请求</button>
+            <button class="btn-put">发送PUT请求</button>
+            <button class="btn-delete">发送DELETE请求</button>
+        </div>
+    </div>
+    <script>
+        const btns = document.querySelectorAll('button');
+        // console.log(btns);
+
+        // axios.request(obj)获取数据
+        btns[0].onclick = function () {
+            axios.request({
+                method: 'GET',
+                url: 'http://localhost:3000/comments'
+            }).then(
+                res => {
+                    console.log(res);
+                    console.log(res.data[1].what);
+                }
+            )
+        }
+        // axios.post(url,data[,obj])添加数据
+        btns[1].onclick = function () {
+            axios.post(
+                'http://localhost:3000/comments',
+                {
+                    "body": "用post修改过",
+                    "postId": 2
+                }
+            ).then(
+                res => {
+                    console.log(res);
+                }
+            );
+        }
+        // axios.put(url,data[,obj])更新数据 
+        btns[2].onclick = function () {
+            axios.put(
+                'http://localhost:3000/comments/2',
+                {
+                    "what": "一样的月光，怎么让我越看越心伤",
+                    "postId": 2
+                }
+            ).then(
+                res => {
+                    console.log(res);
+                }
+            )
+        }
+        //axios.delete(url,[,obj])删除数据
+        btns[3].onclick = function () {
+            axios.delete(
+                'http://localhost:3000/comments/3',
+            ).then(
+                res => {
+                    console.log(res);
+                }
+            );
+        }
+    </script>
+</body>
+
+</html>

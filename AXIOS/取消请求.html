@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取消请求</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <style>
+        .content {
+            margin: 10px auto;
+            width: 80%;
+        }
+
+        .content h1 {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        button {
+            width: 130px;
+            height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>取消请求</h1>
+        <div class="btns">
+            <button class="btn-primary">发送请求</button>
+            <button class="btn-warning">取消请求</button>
+        </div>
+    </div>
+    <script>
+        const btns = document.querySelectorAll('button');
+
+        // 2、声明全局变量
+        let cancel = null
+        btns[0].addEventListener('click', function () {
+            // 检查现在是否在请求中
+            if (cancel != null) {
+                cancel();
+            };
+            axios({
+                method: 'GET',
+                url: 'http://localhost:3000/posts',
+                // 1、添加配置对象属性
+                cancelToken: new axios.CancelToken(function (c) {
+                    // 3、将c的值给cancel
+                    cancel = c;
+                })
+            }).then(res => {
+                console.log(res);
+                let cancel = null
+            })
+        })
+
+        // 绑定取消请求事件
+        btns[1].onclick = function () {
+            cancel(); //API 取消ajax请求
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+  /* 清除标签的内外边距 */
+  * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+   }
+    /* 清除浮动 */
+    .clearfix:after {
+     visibility:hidden;
+     clear:both;
+     display:block;
+     content:".";
+     height:0
+    }
+    .clearfix {
+     *zoom:1
+    }
+    body{
+        /* background: url(img/bg1.jpg) ; */
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size:auto;
+        /* 背景图像固定 */
+        background-attachment: fixed;
+    }
+    .time{
+      width: 80%;
+      margin: 30px auto 0;
+      /* background-color: purple; */
+      font-size: 35px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+    }
+    .table{
+        margin: 5% auto;
+        width: 80%;
+        height: auto;
+        min-height: 700px;
+        /* background-color: violet; */
+        color: #fff;
+        font-size: 25px;
+        text-align: center;
+    }
+    .table>thead>tr>th{
+      vertical-align: middle;
+      text-align: center;
+    }
+    .table-hover{
+      color: black;
+    }
+    .cursor:hover{
+        color: pink;
+        box-shadow:0px 1px 5px 7px rgb(0 0 0 / 40%);
+      }

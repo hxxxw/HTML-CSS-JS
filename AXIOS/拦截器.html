@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <title>拦截器</title>
+</head>
+
+<body>
+    <script>
+        // 流程：axios发送请求》请求拦截器回调处理》响应拦截器回调处理》自定义回调数据处理
+        // 设置请求拦截器 config配置对象
+        axios.interceptors.request.use(
+            function (config) {
+                console.log("请求拦截器成功");
+                config.params = { a: 100 };
+                config.timeout = 3000;
+                return config;
+            }, function (error) {
+                console.log("请求拦截器失败");
+                return Promise.reject(error);
+            });
+
+        //设置响应拦截器
+        axios.interceptors.response.use(
+            function (response) {
+                console.log("响应拦截器成功");
+                return response;
+                // return response.data; 只返回响应体内容 在自定义回调中只能看到data数据
+            }, function (error) {
+                console.log("响应拦截器失败");
+                return Promise.reject(error);
+            });
+        //发送请求
+        // const text = axios.create({
+        //     baseURL: 'http://localhost:3000',
+        //     timeout: 2000
+        // });
+        // text({
+        //     method: 'GET',
+        //     url: '/posts'
+        // }).then(res => {
+        //     console.log(res);
+        // })
+        axios({
+            method: 'GET',
+            url: 'http://localhost:3000/posts'
+        }).then(res => {
+            console.log(res);
+        })
+    </script>
+</body>
+
+</html>
